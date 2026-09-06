@@ -6,23 +6,24 @@
   <title>Module 09: Parametric vs. Non-Parametric Test Selection | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
         <p class="course-code">BISC 1254 | Module 09</p>
         <h1>Parametric vs. Non-Parametric Tests</h1>
-        <p class="subtitle">Checking statistical assumptions, evaluating normality, and selecting robust analytical methods for non-normal biological data.</p>
+        <p class="subtitle">Checking assumptions, evaluating normality, and selecting robust methods for non-normal biological data.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 4</span>
-        <small>Advanced Biostatistical Selection</small>
-      </div>
+      <div class="header-badge"><span>UNIT 4</span><small>Advanced Biostatistical Selection</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html">01. Data & Variables</a>
@@ -39,136 +40,63 @@
       <a href="12-data-collection.html">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
         <h2>The Test Selection Framework</h2>
-        <p>Statistical tests fall into two major paradigms. <strong>Parametric tests</strong> make strict underlying assumptions about the population parameters (such as normality and equal variance) and offer higher statistical power when assumptions are met. <strong>Non-parametric tests</strong> make fewer distribution assumptions, operating on ranks or counts, and are robust against non-normality, small samples, and ordinal data.</p>
+        <p><strong>Parametric tests</strong> assume normality and equal variance and offer higher power when assumptions hold. <strong>Non-parametric tests</strong> use ranks or counts and are robust to non-normality, small samples, and ordinal data.</p>
       </div>
       <div class="significance-box" style="margin: 0;">
         <h3>📌 Parametric Assumptions Checklist</h3>
-        <p>1. <strong>Measurement Scale:</strong> Continuous interval or ratio scale.</p>
-        <p>2. <strong>Normality:</strong> Sample data drawn from a normally distributed population.</p>
-        <p>3. <strong>Homogeneity of Variance:</strong> Equal group variances ($\sigma_1^2 = \sigma_2^2$).</p>
-        <p>4. <strong>Independence:</strong> Observations sampled independently.</p>
+        <p>1. Continuous interval or ratio scale.</p>
+        <p>2. Normality of the population distribution.</p>
+        <p>3. Homogeneity of variance ($\sigma_1^2 = \sigma_2^2$).</p>
+        <p>4. Independence of observations.</p>
       </div>
     </section>
-
-    <!-- Parametric vs Non-Parametric Mapping Matrix Table -->
     <section style="margin-top: 36px;">
       <p class="section-label">Statistical Mapping</p>
       <h2>Parametric Tests & Non-Parametric Equivalents</h2>
-
       <div class="data-table-wrapper">
         <table class="data-table">
-          <thead>
-            <tr>
-              <th>Research Design / Objective</th>
-              <th>Parametric Test (Normal Data)</th>
-              <th>Non-Parametric Counterpart (Non-Normal / Ordinal)</th>
-              <th>Primary Metric Analyzed</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Research Design</th><th>Parametric (Normal)</th><th>Non-Parametric</th><th>Metric</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>Compare 1 Sample vs Known Standard</strong></td>
-              <td>One-Sample $t$-Test</td>
-              <td>Wilcoxon Signed-Rank Test</td>
-              <td>Mean vs Median</td>
-            </tr>
-            <tr>
-              <td><strong>Compare 2 Independent Groups</strong></td>
-              <td>Two-Sample Independent $t$-Test</td>
-              <td>Mann-Whitney $U$ Test (Wilcoxon Rank-Sum)</td>
-              <td>Mean difference vs Median rank sum</td>
-            </tr>
-            <tr>
-              <td><strong>Compare 2 Paired / Dependent Groups</strong></td>
-              <td>Paired-Samples $t$-Test</td>
-              <td>Wilcoxon Matched-Pairs Signed-Rank Test</td>
-              <td>Mean difference vs Median signed difference</td>
-            </tr>
-            <tr>
-              <td><strong>Compare $\ge 3$ Independent Groups</strong></td>
-              <td>One-Way Analysis of Variance (ANOVA)</td>
-              <td>Kruskal-Wallis $H$-Test</td>
-              <td>Group variances vs Median rank totals</td>
-            </tr>
-            <tr>
-              <td><strong>Bivariate Association Strength</strong></td>
-              <td>Pearson Correlation Coefficient ($r$)</td>
-              <td>Spearman Rank Correlation ($\rho$)</td>
-              <td>Linear fit vs Monotonic rank fit</td>
-            </tr>
+            <tr><td>1 sample vs known standard</td><td>One-Sample $t$-Test</td><td>Wilcoxon Signed-Rank</td><td>Mean vs Median</td></tr>
+            <tr><td>2 independent groups</td><td>Independent $t$-Test</td><td>Mann-Whitney $U$</td><td>Mean diff vs rank sum</td></tr>
+            <tr><td>2 paired groups</td><td>Paired $t$-Test</td><td>Wilcoxon Matched-Pairs</td><td>Mean vs median signed diff</td></tr>
+            <tr><td>$\ge 3$ independent groups</td><td>One-Way ANOVA</td><td>Kruskal-Wallis $H$</td><td>Group means vs rank totals</td></tr>
+            <tr><td>Bivariate association</td><td>Pearson $r$</td><td>Spearman $\rho$</td><td>Linear vs monotonic fit</td></tr>
           </tbody>
         </table>
       </div>
     </section>
-
-    <!-- Assumption Testing Methods -->
     <section style="margin-top: 36px;">
       <p class="section-label">Diagnostic Tools</p>
       <h2>Testing Parametric Assumptions</h2>
-
       <div class="module-grid">
-        <div class="module-card">
-          <div class="module-number">1</div>
-          <h3>Shapiro-Wilk Test</h3>
-          <p>Formal statistical test for normality. Best suited for smaller biological sample sizes ($n < 50$).</p>
-          <p>$$p > 0.05 \implies \text{Data is normally distributed}$$</p>
-          <p>$$p \le 0.05 \implies \text{Violates normality assumption}$$</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">2</div>
-          <h3>Levene's Test</h3>
-          <p>Evaluates equality of variances (homoscedasticity) across two or more treatment groups.</p>
-          <p>$$p > 0.05 \implies \text{Equal variances assumed}$$</p>
-          <p>$$p \le 0.05 \implies \text{Unequal variances (use Welch's test)}$$</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">3</div>
-          <h3>Visual Inspection (Q-Q Plot)</h3>
-          <p>Quantile-Quantile plots compare observed data points against expected theoretical normal values along a straight 45-degree reference line.</p>
-        </div>
+        <div class="module-card"><div class="module-number">1</div><h3>Shapiro-Wilk Test</h3><p>$$p > 0.05 \implies \text{normal}$$</p><p>$$p \le 0.05 \implies \text{non-normal}$$</p></div>
+        <div class="module-card"><div class="module-number">2</div><h3>Levene's Test</h3><p>$$p > 0.05 \implies \text{equal variances}$$</p><p>$$p \le 0.05 \implies \text{use Welch's test}$$</p></div>
+        <div class="module-card"><div class="module-number">3</div><h3>Q-Q Plot</h3><p>Observed quantiles vs expected normal quantiles; points should follow a 45° line.</p></div>
       </div>
     </section>
-
-    <!-- Field Practical Box -->
     <div class="practical-box">
-      <h3>🐛 Field Practical Case Study: Crop Disease Severity Ratings</h3>
-      <p>An agronomist records cassava mosaic disease severity scores on an ordinal scale ($1 = \text{Healthy}$, $5 = \text{Severe}$) across two farming practices ($n_1 = 12$, $n_2 = 12$):</p>
-      <ul>
-        <li><strong>Data Scale:</strong> Ordinal Likert-type scale (non-continuous data).</li>
-        <li><strong>Test Selection:</strong> Because the variable is ordinal and skewed, an independent $t$-test is invalid. The <strong>Mann-Whitney $U$ Test</strong> is selected.</li>
-        <li><strong>Calculated Outcome:</strong> $U = 22.5$, $p = 0.014$.</li>
-      </ul>
-      <p><strong>Conclusion:</strong> Since $p = 0.014 < 0.05$, there is a statistically significant difference in median disease severity ranks between the two farming practices.</p>
+      <h3>🐛 Crop Disease Severity Ratings</h3>
+      <p>Ordinal severity scores ($1$–$5$) across two practices: use <strong>Mann-Whitney $U$</strong> (not a $t$-test). Example: $U = 22.5$, $p = 0.014$ → significant difference in median ranks.</p>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
     <div class="challenge-box" style="margin-top: 32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> You measure daily milk yields ($N=15$) from a local herd. A Shapiro-Wilk normality test yields $p = 0.003$. Should you use an Independent $t$-Test or a Mann-Whitney $U$ test to compare this group against a second herd?</p>
-
+      <p><strong>Question:</strong> Milk yields ($N=15$), Shapiro-Wilk $p = 0.003$. Independent $t$-test or Mann-Whitney $U$?</p>
       <button class="button primary-button" data-toggle="answer" data-target="m9-answer">Show Solution</button>
-
       <div id="m9-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> You must use the <strong>Mann-Whitney $U$ Test</strong>. The Shapiro-Wilk test rejected normality ($p = 0.003 < 0.05$), indicating severe skewness in a small sample size ($N=15$). Parametric $t$-tests are unreliable under non-normal distributions with small sample sizes.</p>
+        <p><strong>Answer:</strong> <strong>Mann-Whitney $U$</strong>. Normality is rejected ($p = 0.003 < 0.05$) in a small sample, so parametric $t$-tests are unreliable.</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
-    <p>Department of Biological Sciences & Agricultural Studies</p>
-    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+    <p><small>&copy; Interactive Biostatistics Study Lab.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
 </body>
 </html>
