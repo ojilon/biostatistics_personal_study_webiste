@@ -6,23 +6,24 @@
   <title>Module 06: Probability & Probability Distributions | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
         <p class="course-code">BISC 1254 | Module 06</p>
         <h1>Probability & Probability Distributions</h1>
-        <p class="subtitle">Applying biological probability rules, discrete models (Binomial, Poisson), and continuous Normal distributions to research sampling.</p>
+        <p class="subtitle">Binomial, Poisson, and Normal distributions for biological research.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 3</span>
-        <small>Inferential Biostatistics</small>
-      </div>
+      <div class="header-badge"><span>UNIT 3</span><small>Inferential Biostatistics</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html">01. Data & Variables</a>
@@ -39,126 +40,109 @@
       <a href="12-data-collection.html">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
         <h2>Probability in Biological Systems</h2>
-        <p>Biological events involve natural variability and uncertainty. <strong>Probability ($P$)</strong> quantifies the likelihood of a specific outcome occurring, expressed as a real number between $0$ (impossible event) and $1$ (certain event). Probability distributions provide the mathematical foundation for inferential statistics and hypothesis testing.</p>
+        <p>Probability ($P$) quantifies likelihood between $0$ and $1$. Distributions underpin inferential statistics.</p>
       </div>
       <div class="significance-box" style="margin: 0;">
-        <h3>📌 Fundamental Axioms & Rules</h3>
-        <p><strong>Addition Rule (Mutually Exclusive Events):</strong></p>
-        <p>$$P(A \text{ or } B) = P(A) + P(B)$$</p>
-        <p><strong>Multiplication Rule (Independent Events):</strong></p>
-        <p>$$P(A \text{ and } B) = P(A) \cdot P(B)$$</p>
+        <h3>📌 Rules</h3>
+        <p>$$P(A \text{ or } B) = P(A) + P(B)$$ (mutually exclusive)</p>
+        <p>$$P(A \text{ and } B) = P(A) \cdot P(B)$$ (independent)</p>
       </div>
     </section>
-
-    <!-- Biological Probability Distributions Matrix Table -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Distribution Models</p>
-      <h2>Key Biostatistical Probability Distributions</h2>
-
-      <div class="data-table-wrapper">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Distribution Model</th>
-              <th>Data Type</th>
-              <th>Parameters</th>
-              <th>Probability Mass / Density Function</th>
-              <th>Agricultural Application</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Binomial Distribution</strong></td>
-              <td>Discrete (Binary outcomes)</td>
-              <td>$n$ (trials), $p$ (success prob)</td>
-              <td>$$P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}$$</td>
-              <td>Probability that $k$ out of $n=20$ beans germinate under drought stress.</td>
-            </tr>
-            <tr>
-              <td><strong>Poisson Distribution</strong></td>
-              <td>Discrete (Rare events / area)</td>
-              <td>$\lambda$ (mean rate)</td>
-              <td>$$P(X = k) = \frac{\lambda^k \cdot e^{-\lambda}}{k!}$$</td>
-              <td>Number of fall armyworm egg masses counted per square meter of maize field.</td>
-            </tr>
-            <tr>
-              <td><strong>Normal Distribution</strong></td>
-              <td>Continuous</td>
-              <td>$\mu$ (mean), $\sigma$ (std dev)</td>
-              <td>$$f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^2}$$</td>
-              <td>Modeling natural variation in cattle birth weight or crop canopy height.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Standard Normal Distribution & Empirical Rule -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Continuous Models</p>
-      <h2>The Standard Normal Distribution ($Z$) & Empirical Rule</h2>
-      <p>Any normally distributed continuous variable $X \sim N(\mu, \sigma^2)$ can be transformed into the standard normal distribution $Z \sim N(0, 1)$ using the standard score transformation formula:</p>
-      <p>$$Z = \frac{X - \mu}{\sigma}$$</p>
-
-      <div class="module-grid" style="margin-top: 20px;">
-        <div class="module-card">
-          <div class="module-number">68%</div>
-          <h3>$$\mu \pm 1\sigma$$</h3>
-          <p>Approximately <strong>68.27%</strong> of all observations fall within 1 standard deviation of the population mean.</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">95%</div>
-          <h3>$$\mu \pm 1.96\sigma$$</h3>
-          <p>Exactly <strong>95.00%</strong> of observations fall within $1.96$ standard deviations ($\approx 2\sigma$) of the mean.</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">99.7%</div>
-          <h3>$$\mu \pm 3\sigma$$</h3>
-          <p>Approximately <strong>99.73%</strong> of observations fall within 3 standard deviations of the mean.</p>
+    <section style="margin-top:40px;" class="interactive-lab">
+      <p class="section-label">Interactive Visualization Lab</p>
+      <h2>Binomial distribution — change n and p live</h2>
+      <div class="sim-card">
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div class="control-group">
+              <label>Trials n: <span class="value-display" id="bin-n-val">20</span></label>
+              <input type="range" id="bin-n" min="5" max="40" value="20">
+            </div>
+            <div class="control-group">
+              <label>Success p: <span class="value-display" id="bin-p-val">0.50</span></label>
+              <input type="range" id="bin-p" min="0.05" max="0.95" value="0.5" step="0.05">
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><span class="metric-label">Mean np</span><span class="metric-value" id="bin-mean">—</span></div>
+              <div class="metric-card gold"><span class="metric-label">Var</span><span class="metric-value" id="bin-var">—</span></div>
+              <div class="metric-card"><span class="metric-label">Trials run</span><span class="metric-value" id="bin-trials">0</span></div>
+            </div>
+            <button class="button primary-button" id="bin-run-100" style="width:100%;margin-top:10px;">Run 100 trials</button>
+            <button class="button secondary-button" id="bin-run-1000" style="width:100%;margin-top:8px;">Run 1 000 trials</button>
+            <button class="button secondary-button" id="bin-reset" style="width:100%;margin-top:8px;">Reset empirical</button>
+          </div>
+          <div class="canvas-container"><canvas id="probabilityCanvas" width="560" height="320"></canvas></div>
         </div>
       </div>
     </section>
-
-    <!-- Field Practical Box -->
+    <section style="margin-top:36px;" class="interactive-lab">
+      <p class="section-label">Standard Normal Visualizer</p>
+      <h2>Move the critical Z — see two-tailed p-value change</h2>
+      <div class="sim-card">
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div class="control-group">
+              <label>Critical |Z|: <span class="value-display" id="zScoreValue">1.96</span></label>
+              <input type="range" id="zScoreSlider" min="0.5" max="3.5" value="1.96" step="0.01">
+            </div>
+            <p><strong>Two-tailed p ≈ </strong><span id="probValue">0.0500</span></p>
+            <p style="font-size:0.9rem;color:var(--muted);">α = 0.05 corresponds to |Z| ≈ 1.96.</p>
+          </div>
+          <div class="canvas-container"><canvas id="normalCurveCanvas" width="560" height="280"></canvas></div>
+        </div>
+      </div>
+    </section>
     <div class="practical-box">
-      <h3>🥚 Field Practical Exercise: Egg Weight Probability Calculation</h3>
-      <p>In a commercial flock, egg weights follow a normal distribution with mean $\mu = 60.0\text{ g}$ and standard deviation $\sigma = 2.5\text{ g}$. What is the probability that a randomly chosen egg weighs more than $65.0\text{ g}$?</p>
-      <ul>
-        <li><strong>Step 1 (Calculate Z-score):</strong> $$Z = \frac{65.0 - 60.0}{2.5} = \frac{5.0}{2.5} = 2.00$$</li>
-        <li><strong>Step 2 (Consult Standard Normal Table):</strong> $P(Z < 2.00) = 0.9772$</li>
-        <li><strong>Step 3 (Calculate Upper Tail Probability):</strong> $$P(X > 65.0) = 1 - P(Z < 2.00) = 1 - 0.9772 = 0.0228 \text{ (or } 2.28\%)$$</li>
-      </ul>
-      <p><strong>Conclusion:</strong> Only <strong>2.28%</strong> of eggs produced by this flock will exceed $65.0\text{ grams}$.</p>
+      <h3>🥚 Egg Weight Probability</h3>
+      <p>$\mu = 60.0$ g, $\sigma = 2.5$ g. $P(X > 65)$:</p>
+      <p>$$Z = \frac{65-60}{2.5} = 2.00 \rightarrow P = 0.0228\ (2.28\%)$$</p>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
-    <div class="challenge-box" style="margin-top: 32px;">
+    <div class="challenge-box" style="margin-top:32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> An agricultural field officer observes that parasitic ticks occur randomly on cattle in a paddock at an average rate of $\lambda = 2.0$ ticks per animal. Which probability distribution should be used to calculate the probability of finding 0 ticks on a randomly inspected cow?</p>
-
+      <p><strong>Question:</strong> Ticks occur at $\lambda = 2.0$ per animal. Which distribution for $P(0$ ticks$)$?</p>
       <button class="button primary-button" data-toggle="answer" data-target="m6-answer">Show Solution</button>
-
       <div id="m6-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> The <strong>Poisson Distribution</strong> must be used because the data consists of rare, discrete count events occurring within a fixed sample unit (one cow). Using the formula $P(X = 0) = \frac{2.0^0 \cdot e^{-2.0}}{0!} = 1 \cdot e^{-2.0} \approx 0.1353$, there is a <strong>13.53% chance</strong> of finding 0 ticks on a cow.</p>
+        <p><strong>Answer:</strong> Poisson. $P(X=0) = e^{-2.0} \approx 0.1353$ (13.53%).</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
-    <p>Department of Biological Sciences & Agricultural Studies</p>
-    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+    <p><small>&copy; Interactive Biostatistics Study Lab.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
+  <script src="../js/visualizations.js"></script>
+  <script src="../js/modules/probability-sim.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.ProbabilitySimulation) return;
+      const sim = new ProbabilitySimulation('probabilityCanvas', { n: 20, p: 0.5 });
+      const nSlider = document.getElementById('bin-n');
+      const pSlider = document.getElementById('bin-p');
+      function sync() {
+        sim.n = parseInt(nSlider.value, 10);
+        sim.p = parseFloat(pSlider.value);
+        document.getElementById('bin-n-val').textContent = sim.n;
+        document.getElementById('bin-p-val').textContent = sim.p.toFixed(2);
+        sim.empiricalCounts = new Array(sim.n + 1).fill(0);
+        sim.trialsCount = 0;
+        sim.render();
+        document.getElementById('bin-mean').textContent = (sim.n * sim.p).toFixed(2);
+        document.getElementById('bin-var').textContent = (sim.n * sim.p * (1 - sim.p)).toFixed(2);
+        document.getElementById('bin-trials').textContent = '0';
+      }
+      nSlider.addEventListener('input', sync);
+      pSlider.addEventListener('input', sync);
+      sync();
+      document.getElementById('bin-run-100')?.addEventListener('click', () => { sim.runTrials(100); document.getElementById('bin-trials').textContent = sim.trialsCount; });
+      document.getElementById('bin-run-1000')?.addEventListener('click', () => { sim.runTrials(1000); document.getElementById('bin-trials').textContent = sim.trialsCount; });
+      document.getElementById('bin-reset')?.addEventListener('click', () => { sim.resetEmpiricalData(); document.getElementById('bin-trials').textContent = '0'; });
+    });
+  </script>
 </body>
 </html>
