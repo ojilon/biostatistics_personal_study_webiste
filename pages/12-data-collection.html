@@ -6,23 +6,24 @@
   <title>Module 12: Field Data Collection & Management | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
         <p class="course-code">BISC 1254 | Module 12</p>
         <h1>Field Data Collection & Quality Control</h1>
-        <p class="subtitle">Sampling execution, instrument calibration, digital data capture tools, and quality control protocols in biostatistical field research.</p>
+        <p class="subtitle">Sampling execution, instrument calibration, digital capture, and quality control in field research.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 4</span>
-        <small>Field & Practical Biostatistics</small>
-      </div>
+      <div class="header-badge"><span>UNIT 4</span><small>Field & Practical Biostatistics</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html">01. Data & Variables</a>
@@ -39,137 +40,66 @@
       <a href="12-data-collection.html" class="active">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
         <h2>Data Integrity in the Field</h2>
-        <p>The statistical validity of any biostatistical analysis is bounded by the quality of primary data collected in the field or laboratory. <strong>Field Data Collection</strong> requires systematic protocols to minimize measurement error, eliminate observer bias, and maintain data integrity prior to statistical computation.</p>
+        <p>Statistical validity is limited by the quality of primary data. Field collection needs protocols that minimize measurement error and observer bias.</p>
       </div>
       <div class="significance-box" style="margin: 0;">
-        <h3>📌 Decomposition of Observed Measurements</h3>
-        <p>Every recorded biological measurement ($x_{\text{observed}}$) consists of the true parameter value plus systematic and random error components:</p>
+        <h3>📌 Observed Measurement Model</h3>
         <p>$$x_{\text{observed}} = x_{\text{true}} + \epsilon_{\text{systematic}} + \epsilon_{\text{random}}$$</p>
-        <p>Where $\epsilon_{\text{systematic}}$ reduces <strong>accuracy</strong> (bias) and $\epsilon_{\text{random}}$ reduces <strong>precision</strong> (repeatability).</p>
+        <p>$\epsilon_{\text{systematic}}$ reduces <strong>accuracy</strong>; $\epsilon_{\text{random}}$ reduces <strong>precision</strong>.</p>
       </div>
     </section>
-
-    <!-- Field Data Collection Methods Comparison Table -->
     <section style="margin-top: 36px;">
       <p class="section-label">Methodology Matrix</p>
       <h2>Primary Field Data Collection Methods</h2>
-
       <div class="data-table-wrapper">
         <table class="data-table">
-          <thead>
-            <tr>
-              <th>Collection Approach</th>
-              <th>Primary Tools / Platforms</th>
-              <th>Data Structure</th>
-              <th>Primary Risk Factor</th>
-              <th>Optimal Agricultural Use Case</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Approach</th><th>Tools</th><th>Data type</th><th>Main risk</th><th>Use case</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>Direct Physical Measurement</strong></td>
-              <td>Digital callipers, spring balances, moisture meters, GPS units</td>
-              <td>Continuous Quantitative</td>
-              <td>Instrument drift & zero-point calibration error</td>
-              <td>Measuring stem diameter, grain moisture content, or carcass weight.</td>
-            </tr>
-            <tr>
-              <td><strong>Structured Visual Scoring</strong></td>
-              <td>Standardized visual rating scales, disease severity charts</td>
-              <td>Ordinal Categorical</td>
-              <td>Observer subjectivity & inter-rater inconsistency</td>
-              <td>Scoring crop foliar disease damage (e.g., cassava mosaic severity 1–5).</td>
-            </tr>
-            <tr>
-              <td><strong>Digital Mobile Surveying</strong></td>
-              <td>ODK Collect, KoboToolbox, tablet forms</td>
-              <td>Mixed (Numeric, Geospatial, Audio, Images)</td>
-              <td>Form logic errors & device power failure</td>
-              <td>Large-scale regional epidemiological or farm management surveys.</td>
-            </tr>
-            <tr>
-              <td><strong>Secondary Institutional Extraction</strong></td>
-              <td>Meteorological records, government registry data</td>
-              <td>Time-Series Continuous</td>
-              <td>Missing historical entries & inconsistent protocols</td>
-              <td>Modeling historical rainfall trends vs seasonal crop yields.</td>
-            </tr>
+            <tr><td><strong>Direct measurement</strong></td><td>Callipers, balances, moisture meters, GPS</td><td>Continuous</td><td>Instrument drift</td><td>Stem diameter, grain moisture, carcass weight</td></tr>
+            <tr><td><strong>Visual scoring</strong></td><td>Severity charts, rating scales</td><td>Ordinal</td><td>Observer subjectivity</td><td>Cassava mosaic severity 1–5</td></tr>
+            <tr><td><strong>Mobile survey</strong></td><td>ODK Collect, KoboToolbox</td><td>Mixed + geospatial</td><td>Form logic / power</td><td>Regional farm surveys</td></tr>
+            <tr><td><strong>Secondary records</strong></td><td>Met stations, registries</td><td>Time series</td><td>Missing / inconsistent history</td><td>Rainfall vs yield models</td></tr>
           </tbody>
         </table>
       </div>
     </section>
-
-    <!-- Sources of Biological Measurement Error Grid -->
     <section style="margin-top: 36px;">
       <p class="section-label">Quality Control</p>
       <h2>Managing Error in Biological Sampling</h2>
-
       <div class="module-grid">
-        <div class="module-card">
-          <div class="module-number">1</div>
-          <h3>Systematic Error (Bias)</h3>
-          <p>Consistently shifts readings in one direction. Caused by uncalibrated scales, faulty environmental sensors, or biased sampling frame selection.</p>
-          <p><strong>Remedy:</strong> Daily instrument zero-point calibration against known reference standards.</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">2</div>
-          <h3>Random Variation</h3>
-          <p>Unpredictable fluctuation caused by micro-environmental shifts, temperature swings, or slight variations in operator technique.</p>
-          <p><strong>Remedy:</strong> Increasing sample size ($n$) and standardizing environmental measurement timing.</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">3</div>
-          <h3>Observer Bias</h3>
-          <p>Expectation bias where an evaluator unconsciously scores treated groups higher than controls.</p>
-          <p><strong>Remedy:</strong> Double-blind evaluation where data collectors do not know treatment codes.</p>
-        </div>
+        <div class="module-card"><div class="module-number">1</div><h3>Systematic error (bias)</h3><p>Consistent shift in one direction (uncalibrated scale, biased frame). <strong>Remedy:</strong> daily zero-point calibration.</p></div>
+        <div class="module-card"><div class="module-number">2</div><h3>Random variation</h3><p>Unpredictable fluctuation (environment, technique). <strong>Remedy:</strong> larger $n$, standardized timing.</p></div>
+        <div class="module-card"><div class="module-number">3</div><h3>Observer bias</h3><p>Evaluator scores treated groups higher. <strong>Remedy:</strong> double-blind coding.</p></div>
       </div>
     </section>
-
-    <!-- Field Practical Box -->
     <div class="practical-box">
-      <h3>📱 Practical Case Study: Mobile Data Collection via ODK / KoboToolbox</h3>
-      <p>A research team deployed digital field forms using ODK Collect across 120 smallholder cassava farms in Masaka District:</p>
+      <h3>📱 Mobile Data via ODK / KoboToolbox</h3>
+      <p>120 cassava farms in Masaka:</p>
       <ul>
-        <li><strong>Quality Control Rules Implemented:</strong>
-          <ul>
-            <li><strong>Range Constraints:</strong> Plant height constrained between $0.2\text{ m}$ and $4.5\text{ m}$ to prevent entry typos (e.g., typing 25m).</li>
-            <li><strong>Mandatory Photo Capture:</strong> Automatic geotagging and plant photo capture for disease score validation.</li>
-            <li><strong>Real-Time Auditing:</strong> Submissions synced daily to a central cloud server for rapid oversight by senior biostatisticians.</li>
-          </ul>
-        </li>
+        <li>Range constraints (e.g. plant height $0.2$–$4.5$ m) to block typos.</li>
+        <li>Mandatory geotagged photos for disease scores.</li>
+        <li>Daily cloud sync for audit.</li>
       </ul>
-      <p><strong>Result:</strong> Data entry errors were reduced by <strong>94%</strong> compared to traditional paper-based field sheets, eliminating manual data re-keying.</p>
+      <p>Entry errors fell by <strong>94%</strong> vs paper sheets.</p>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
     <div class="challenge-box" style="margin-top: 32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> A field technician measures blood glucose levels in cattle using an uncalibrated glucometer that constantly reads $0.8\text{ mmol/L}$ higher than actual values. Does this issue affect the accuracy, the precision, or both metrics of the resulting dataset?</p>
-
+      <p><strong>Question:</strong> An uncalibrated glucometer always reads $0.8$ mmol/L high. Does that hurt accuracy, precision, or both?</p>
       <button class="button primary-button" data-toggle="answer" data-target="m12-answer">Show Solution</button>
-
       <div id="m12-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> This uncalibrated instrument introduces <strong>Systematic Error (Bias)</strong>, which directly degrades <strong>Accuracy</strong> (closeness to the true value). The <strong>Precision</strong> (repeatability of measurements) may remain high if repeated tests yield identical offset values, but every value remains shifted systematically upward.</p>
+        <p><strong>Answer:</strong> <strong>Systematic bias</strong> hurts <strong>accuracy</strong>. Precision can stay high if repeats give the same offset, but every value is shifted upward.</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
-    <p>Department of Biological Sciences & Agricultural Studies</p>
-    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+    <p><small>&copy; Interactive Biostatistics Study Lab.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
 </body>
 </html>
