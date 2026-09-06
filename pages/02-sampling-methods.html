@@ -6,10 +6,15 @@
   <title>Module 02: Sampling Techniques & Methods | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
@@ -17,12 +22,8 @@
         <h1>Sampling Techniques & Data Collection</h1>
         <p class="subtitle">Mastering probability sampling design, sample size selection, and sampling error minimization in biological systems.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 1</span>
-        <small>Data Foundations</small>
-      </div>
+      <div class="header-badge"><span>UNIT 1</span><small>Data Foundations</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html">01. Data & Variables</a>
@@ -39,80 +40,43 @@
       <a href="12-data-collection.html">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
         <h2>Population vs. Sample</h2>
-        <p>A <strong>Population ($N$)</strong> comprises the complete set of all individual items or biological entities under study, while a <strong>Sample ($n$)</strong> is a representative subset chosen to infer properties about the population. Proper sampling designs prevent selection bias and ensure valid inferential statistics.</p>
+        <p>A <strong>Population ($N$)</strong> comprises the complete set of all individual items under study, while a <strong>Sample ($n$)</strong> is a representative subset chosen to infer properties about the population.</p>
       </div>
       <div class="significance-box" style="margin: 0;">
         <h3>📌 Key Principle</h3>
-        <p><strong>Sampling Error</strong> ($|\bar{x} - \mu|$) measures the discrepancy between a sample estimate and the true population parameter. It decreases as sample size ($n$) increases and when stratification accounts for field heterogeneity.</p>
+        <p><strong>Sampling Error</strong> ($|\bar{x} - \mu|$) decreases as sample size ($n$) increases and when stratification accounts for field heterogeneity.</p>
       </div>
     </section>
-
-    <!-- Sampling Methods Matrix -->
     <section style="margin-top: 36px;">
       <p class="section-label">Probability Sampling Framework</p>
       <h2>Probability Sampling Techniques</h2>
-
       <div class="data-table-wrapper">
         <table class="data-table">
-          <thead>
-            <tr>
-              <th>Sampling Design</th>
-              <th>How It Works</th>
-              <th>Key Advantage</th>
-              <th>Biological / Agricultural Application</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Sampling Design</th><th>How It Works</th><th>Key Advantage</th><th>Biological Application</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>Simple Random (SRS)</strong></td>
-              <td>Every unit in population has an equal, independent chance of selection.</td>
-              <td>Completely unbiased, simple statistical setup.</td>
-              <td>Selecting 20 random chickens from a homogeneous indoor flock.</td>
-            </tr>
-            <tr>
-              <td><strong>Stratified Random</strong></td>
-              <td>Population divided into homogeneous strata (subgroups); random samples taken from each.</td>
-              <td>Ensures representation across gradients (e.g., soil fertility, slope).</td>
-              <td>Sampling cassava yields across North (High Fertility) vs South (Low Fertility) plots.</td>
-            </tr>
-            <tr>
-              <td><strong>Systematic</strong></td>
-              <td>Selects every $k^{\text{th}}$ item ($k = N/n$) after a random start point.</td>
-              <td>Easy and efficient for field layout and line transects.</td>
-              <td>Sampling pest counts on every $5^{\text{th}}$ maize plant along a crop row.</td>
-            </tr>
-            <tr>
-              <td><strong>Cluster</strong></td>
-              <td>Population grouped into clusters; entire clusters randomly chosen for measuring.</td>
-              <td>Cost-effective for widely dispersed field geography.</td>
-              <td>Selecting 3 entire sub-counties in Mukono district to survey cattle tick burden.</td>
-            </tr>
+            <tr><td><strong>Simple Random (SRS)</strong></td><td>Every unit has equal chance of selection.</td><td>Unbiased</td><td>20 random chickens from a homogeneous flock.</td></tr>
+            <tr><td><strong>Stratified Random</strong></td><td>Population divided into strata; random samples from each.</td><td>Represents gradients</td><td>Cassava yields North vs South fertility plots.</td></tr>
+            <tr><td><strong>Systematic</strong></td><td>Every $k^{\text{th}}$ item after random start ($k = N/n$).</td><td>Efficient for field rows</td><td>Pest counts on every 5th maize plant.</td></tr>
+            <tr><td><strong>Cluster</strong></td><td>Entire clusters randomly chosen.</td><td>Cost-effective geographically</td><td>3 sub-counties for cattle tick survey.</td></tr>
           </tbody>
         </table>
       </div>
     </section>
-
-    <!-- Interactive Simulator Module -->
     <section style="margin-top: 36px;">
       <p class="section-label">Interactive Field Laboratory</p>
       <h2>Cassava Yield Field Simulator</h2>
-      <p>Simulate sampling from a 100-plot cassava trial field ($10 \times 10$ grid). The North half of the field features higher soil fertility than the South half. Run different sampling designs to compare estimate precision and sampling error against the true field average.</p>
-
+      <p>Simulate sampling from a 100-plot ($10 \times 10$) cassava field. North half has higher fertility. Compare designs against the true field average.</p>
       <div class="sim-card">
         <div class="sim-header">
           <h3>🌱 Plot Grid & Yield Visualizer</h3>
           <p>Gold squares highlight sampled plots ($n$).</p>
         </div>
-
         <div class="sim-grid">
-          <!-- Controls Panel -->
           <div class="sim-controls">
             <div class="control-group">
               <label for="samplingMethod">Sampling Method</label>
@@ -123,71 +87,47 @@
                 <option value="cluster">Cluster Sampling (Row Clusters)</option>
               </select>
             </div>
-
             <div class="control-group">
               <label for="sampleSize">Sample Size ($n$): <span class="value-display" id="sampleSizeVal">10</span></label>
               <input type="range" id="sampleSize" min="4" max="40" step="2" value="10" oninput="document.getElementById('sampleSizeVal').textContent = this.value">
             </div>
-
             <button id="runSamplingBtn" class="button primary-button" style="width: 100%; margin-top: 10px;">Execute Sample Draw</button>
           </div>
-
-          <!-- Canvas & Display Area -->
           <div>
-            <div class="canvas-container">
-              <canvas id="samplingCanvas" width="480" height="360"></canvas>
-            </div>
-
+            <div class="canvas-container"><canvas id="samplingCanvas" width="480" height="360"></canvas></div>
             <div class="metrics-grid">
-              <div class="metric-card">
-                <span class="metric-label">True Pop Mean ($\mu$)</span>
-                <span class="metric-value" id="popMeanDisplay">--</span>
-              </div>
-              <div class="metric-card gold">
-                <span class="metric-label">Sample Mean ($\bar{x}$)</span>
-                <span class="metric-value" id="sampleMeanDisplay">--</span>
-              </div>
-              <div class="metric-card alert">
-                <span class="metric-label">Sampling Error</span>
-                <span class="metric-value" id="samplingErrorDisplay">--</span>
-              </div>
+              <div class="metric-card"><span class="metric-label">True Pop Mean ($\mu$)</span><span class="metric-value" id="popMeanDisplay">--</span></div>
+              <div class="metric-card gold"><span class="metric-label">Sample Mean ($\bar{x}$)</span><span class="metric-value" id="sampleMeanDisplay">--</span></div>
+              <div class="metric-card alert"><span class="metric-label">Sampling Error</span><span class="metric-value" id="samplingErrorDisplay">--</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Field Practical Box -->
     <div class="practical-box">
       <h3>🚜 Practical Field Protocol: Stratified Sampling</h3>
-      <p>When sampling an agricultural field with environmental gradients (such as a slope leading toward a wetland):</p>
+      <p>When sampling a field with environmental gradients:</p>
       <ul>
-        <li>Divide the field into distinct uniform zones (Strata: Upper Slope, Mid Slope, Valley Floor).</li>
+        <li>Divide into uniform zones (strata).</li>
         <li>Assign plot numbers within each stratum.</li>
-        <li>Use proportional allocation to draw random samples independently from each stratum.</li>
-        <li>Combine stratum means weighted by area size to obtain an unbiased field yield estimate.</li>
+        <li>Draw random samples independently from each stratum (proportional allocation).</li>
+        <li>Combine stratum means weighted by area for an unbiased estimate.</li>
       </ul>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
     <div class="challenge-box" style="margin-top: 32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> Why does Stratified Random Sampling yield lower sampling error than Simple Random Sampling when a field exhibits a strong soil fertility gradient?</p>
-
+      <p><strong>Question:</strong> Why does Stratified Random Sampling yield lower sampling error than SRS when a field has a strong soil fertility gradient?</p>
       <button class="button primary-button" data-toggle="answer" data-target="m2-answer">Show Solution</button>
-
       <div id="m2-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> Stratified random sampling accounts for variation between strata by forcing sample units to be drawn proportionally from both high and low fertility zones. Simple random sampling risks under-sampling or over-sampling high-yield areas purely by chance, resulting in higher variance and sampling error.</p>
+        <p><strong>Answer:</strong> Stratified sampling forces units from both high and low fertility zones. SRS risks under- or over-sampling high-yield areas by chance, increasing variance and sampling error.</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
     <p>Department of Biological Sciences & Agricultural Studies</p>
-    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+    <p><small>&copy; Interactive Biostatistics Study Lab.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
   <script src="../js/modules/sampling-sim.js"></script>
 </body>
