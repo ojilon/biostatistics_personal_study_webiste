@@ -6,10 +6,15 @@
   <title>Module 01: Introduction to Data & Variables | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
@@ -17,12 +22,8 @@
         <h1>Introduction to Data & Variables</h1>
         <p class="subtitle">Understanding biological data classifications, scales of measurement, and variable types in agricultural research.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 1</span>
-        <small>Data Foundations</small>
-      </div>
+      <div class="header-badge"><span>UNIT 1</span><small>Data Foundations</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html" class="active">01. Data & Variables</a>
@@ -39,9 +40,7 @@
       <a href="12-data-collection.html">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
@@ -53,118 +52,48 @@
         <p>The choice of descriptive statistics (mean vs. median) and hypothesis tests ($t$-test vs. Chi-square) is determined by whether your variable is <strong>qualitative</strong> or <strong>quantitative</strong>.</p>
       </div>
     </section>
-
-    <!-- Variable Types Matrix Table -->
     <section style="margin-top: 36px;">
       <p class="section-label">Classification Matrix</p>
       <h2>Types of Variables in Biological Research</h2>
-
       <div class="data-table-wrapper">
         <table class="data-table">
-          <thead>
-            <tr>
-              <th>Variable Category</th>
-              <th>Subtype</th>
-              <th>Definition</th>
-              <th>Ugandan Agricultural Example</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Variable Category</th><th>Subtype</th><th>Definition</th><th>Ugandan Agricultural Example</th></tr></thead>
           <tbody>
-            <tr>
-              <td rowspan="2"><strong>Qualitative</strong><br>(Categorical)</td>
-              <td><strong>Nominal</strong></td>
-              <td>Categories with no intrinsic order or ranking</td>
-              <td>Cassava variety name (<em>NASE 14</em>, <em>NAROCASS 1</em>, <em>TME 204</em>)</td>
-            </tr>
-            <tr>
-              <td><strong>Ordinal</strong></td>
-              <td>Categories with a clear rank or severity order</td>
-              <td>Cassava Mosaic Disease severity rating (1 = Healthy, 5 = Severe)</td>
-            </tr>
-            <tr>
-              <td rowspan="2"><strong>Quantitative</strong><br>(Numerical)</td>
-              <td><strong>Discrete</strong></td>
-              <td>Countable whole numbers; no fractional values</td>
-              <td>Number of eggs laid per hen per week in a Wakiso poultry farm</td>
-            </tr>
-            <tr>
-              <td><strong>Continuous</strong></td>
-              <td>Measurable values along a continuum; can take decimals</td>
-              <td>Daily milk production per cow in Mbarara (liters)</td>
-            </tr>
+            <tr><td rowspan="2"><strong>Qualitative</strong><br>(Categorical)</td><td><strong>Nominal</strong></td><td>Categories with no intrinsic order</td><td>Cassava variety (<em>NASE 14</em>, <em>NAROCASS 1</em>)</td></tr>
+            <tr><td><strong>Ordinal</strong></td><td>Categories with a clear rank</td><td>Cassava Mosaic Disease severity (1 = Healthy, 5 = Severe)</td></tr>
+            <tr><td rowspan="2"><strong>Quantitative</strong><br>(Numerical)</td><td><strong>Discrete</strong></td><td>Countable whole numbers</td><td>Eggs laid per hen per week (Wakiso)</td></tr>
+            <tr><td><strong>Continuous</strong></td><td>Measurable values along a continuum</td><td>Daily milk production per cow in Mbarara (liters)</td></tr>
           </tbody>
         </table>
       </div>
     </section>
-
-    <!-- Four Scales of Measurement -->
     <section style="margin-top: 36px;">
       <p class="section-label">Measurement Framework</p>
       <h2>The Four Levels of Measurement</h2>
-
       <div class="module-grid">
-        <div class="module-card">
-          <div class="module-number">1</div>
-          <h3>Nominal Scale</h3>
-          <p>Assigns labels or names to observations. Operations permitted: Counting ($N$) and calculating proportions or mode.</p>
-          <p><strong>Example:</strong> Cattle breed (Ankole Longhorn, Friesian, Zebu).</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">2</div>
-          <h3>Ordinal Scale</h3>
-          <p>Ranks data in order, but the intervals between ranks are unequal or unknown. Operations: Median, percentiles.</p>
-          <p><strong>Example:</strong> Soil fertility rank (Low, Medium, High).</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">3</div>
-          <h3>Interval Scale</h3>
-          <p>Ordered scale with equal intervals between units, but no true zero point (zero is arbitrary).</p>
-          <p><strong>Example:</strong> Soil temperature in Celsius (&deg;C).</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">4</div>
-          <h3>Ratio Scale</h3>
-          <p>Ordered scale with equal intervals AND a true absolute zero point (meaning absence of quantity).</p>
-          <p><strong>Example:</strong> Bean root dry weight (grams) or canopy height (cm).</p>
-        </div>
+        <div class="module-card"><div class="module-number">1</div><h3>Nominal Scale</h3><p>Labels only. Operations: counting ($N$), mode.</p><p><strong>Example:</strong> Cattle breed (Ankole, Friesian, Zebu).</p></div>
+        <div class="module-card"><div class="module-number">2</div><h3>Ordinal Scale</h3><p>Ranks with unequal intervals. Operations: median, percentiles.</p><p><strong>Example:</strong> Soil fertility (Low, Medium, High).</p></div>
+        <div class="module-card"><div class="module-number">3</div><h3>Interval Scale</h3><p>Equal intervals, no true zero.</p><p><strong>Example:</strong> Soil temperature (°C).</p></div>
+        <div class="module-card"><div class="module-number">4</div><h3>Ratio Scale</h3><p>Equal intervals and true zero.</p><p><strong>Example:</strong> Root dry weight (g), canopy height (cm).</p></div>
       </div>
     </section>
-
-    <!-- Field Application Box -->
     <div class="practical-box">
       <h3>🌱 Field Practical Exercise</h3>
-      <p>A researcher at the National Agricultural Research Organisation (NARO) collected the following parameters from a bean trial in Namulonge:</p>
-      <ul>
-        <li><strong>Var A:</strong> Leaf area ($cm^2$)</li>
-        <li><strong>Var B:</strong> Resistance status (Resistant, Moderately Susceptible, Susceptible)</li>
-        <li><strong>Var C:</strong> Pod count per plant</li>
-        <li><strong>Var D:</strong> Flower color (White, Purple, Pink)</li>
-      </ul>
-      <p>Identify the scale of measurement for each variable before performing analysis in SPSS or Excel.</p>
+      <p>NARO bean trial parameters: Leaf area ($cm^2$), Resistance status (Resistant / Susceptible), Pod count, Flower color. Identify the scale of each before analysis.</p>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
     <div class="challenge-box" style="margin-top: 32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> Why can you calculate the arithmetic mean for leaf area (Ratio scale), but NOT for disease severity grade (Ordinal scale)?</p>
-      
+      <p><strong>Question:</strong> Why can you calculate the mean for leaf area (ratio) but not for disease severity grade (ordinal)?</p>
       <button class="button primary-button" data-toggle="answer" data-target="m1-answer">Show Solution</button>
-
       <div id="m1-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> On an ordinal scale (e.g., Disease Grade 1 to 5), the distance between Grade 1 and Grade 2 is not necessarily equal to the distance between Grade 4 and Grade 5. Because numeric intervals are not uniform, mathematical operations like addition and division are invalid. Ordinal data must be summarized using the <strong>Median</strong> or <strong>Mode</strong> rather than the Mean.</p>
+        <p><strong>Answer:</strong> Ordinal intervals are not uniform, so addition and division are invalid. Use the <strong>median</strong> or <strong>mode</strong> for ordinal data.</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
-    <p>Department of Biological Sciences & Agricultural Studies</p>
-    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+    <p><small>&copy; Interactive Biostatistics Study Lab.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
 </body>
 </html>
