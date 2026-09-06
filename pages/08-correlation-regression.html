@@ -6,10 +6,15 @@
   <title>Module 08: Correlation & Simple Linear Regression | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
@@ -17,12 +22,8 @@
         <h1>Correlation & Simple Linear Regression</h1>
         <p class="subtitle">Quantifying association strength, modeling functional bivariate relationships, and predicting biological responses.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 3</span>
-        <small>Inferential Biostatistics</small>
-      </div>
+      <div class="header-badge"><span>UNIT 3</span><small>Inferential Biostatistics</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html">01. Data & Variables</a>
@@ -39,129 +40,81 @@
       <a href="12-data-collection.html">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
         <h2>Modeling Biological Relationships</h2>
-        <p>In biological systems, variables rarely act in isolation. <strong>Correlation</strong> evaluates the strength and direction of a linear association between two continuous variables. <strong>Simple Linear Regression</strong> models the mathematical functional relationship, enabling prediction of a dependent response variable ($Y$) from an independent predictor ($X$).</p>
+        <p><strong>Correlation</strong> evaluates linear association strength. <strong>Simple Linear Regression</strong> models $Y$ from $X$ for prediction.</p>
       </div>
       <div class="significance-box" style="margin: 0;">
-        <h3>📌 Regression & Correlation Equations</h3>
-        <p><strong>Pearson Correlation Coefficient ($r$):</strong></p>
+        <h3>📌 Equations</h3>
         <p>$$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$$</p>
-        <p><strong>Linear Regression Model:</strong></p>
         <p>$$\hat{Y} = \beta_0 + \beta_1 X$$</p>
       </div>
     </section>
-
-    <!-- Correlation Matrix Table -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Association Analysis</p>
-      <h2>Pearson vs. Spearman Correlation</h2>
-
-      <div class="data-table-wrapper">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Pearson Correlation ($r$)</th>
-              <th>Spearman Rank Correlation ($\rho$)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Data Type Requirement</strong></td>
-              <td>Continuous (Interval or Ratio) scale</td>
-              <td>Ordinal or non-normally distributed Continuous scale</td>
-            </tr>
-            <tr>
-              <td><strong>Relationship Evaluated</strong></td>
-              <td>Linear relationship</td>
-              <td>Monotonic relationship (general trend)</td>
-            </tr>
-            <tr>
-              <td><strong>Assumptions</strong></td>
-              <td>Bivariate normality, homoscedasticity, no extreme outliers</td>
-              <td>Non-parametric (no normality assumption required)</td>
-            </tr>
-            <tr>
-              <td><strong>Value Range</strong></td>
-              <td>$-1.0 \le r \le +1.0$</td>
-              <td>$-1.0 \le \rho \le +1.0$</td>
-            </tr>
-            <tr>
-              <td><strong>Biological Application</strong></td>
-              <td>Correlating temperature vs plant transpiration rate</td>
-              <td>Correlating disease severity grade vs soil quality rank</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Linear Regression Anatomy -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Predictive Modeling</p>
-      <h2>Simple Linear Regression Anatomy</h2>
-
-      <div class="module-grid">
-        <div class="module-card">
-          <div class="module-number">1</div>
-          <h3>Slope ($\beta_1$)</h3>
-          <p>Represents the expected change in response variable $Y$ per unit increase in predictor variable $X$.</p>
-          <p>$$\beta_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}$$</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">2</div>
-          <h3>Intercept ($\beta_0$)</h3>
-          <p>Represents the predicted baseline value of $Y$ when the predictor variable $X = 0$.</p>
-          <p>$$\beta_0 = \bar{Y} - \beta_1 \bar{X}$$</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">3</div>
-          <h3>Goodness of Fit ($R^2$)</h3>
-          <p>The <strong>Coefficient of Determination ($R^2$)</strong> quantifies the proportion of total variation in $Y$ explained by $X$.</p>
-          <p>$$R^2 = (r)^2 \quad (0 \le R^2 \le 1.0)$$</p>
+    <section style="margin-top: 40px;" class="interactive-lab">
+      <p class="section-label">Interactive Visualization Lab</p>
+      <h2>Adjust the data — watch correlation & the regression line change</h2>
+      <p>Click the plot to add points. Residual lines show distance from the fitted line. Load examples or clear points to explore outliers.</p>
+      <div class="sim-card">
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div style="background:#f8fbf9;border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px;">
+              <p style="margin:0 0 8px;"><strong>Pearson r:</strong> <span id="reg-r-val">—</span></p>
+              <p style="margin:0 0 8px;"><strong>R² (fit):</strong> <span id="reg-r2-val">—</span></p>
+              <p style="margin:0;"><strong>Equation:</strong> <span id="reg-eq-val">Ŷ = …</span></p>
+            </div>
+            <button type="button" class="button primary-button" id="reg-reset-btn" style="width:100%;margin-bottom:8px;">Reset nitrogen–yield</button>
+            <button type="button" class="button secondary-button" id="reg-rain-btn" style="width:100%;margin-bottom:8px;">Load rainfall–coffee</button>
+            <button type="button" class="button secondary-button" id="reg-clear-btn" style="width:100%;">Clear all points</button>
+            <p style="font-size:0.88rem;color:var(--muted);margin-top:12px;">Add an outlier far from the line and watch r and R² drop.</p>
+          </div>
+          <div>
+            <div class="canvas-container"><canvas id="regressionCanvas" width="560" height="380" style="cursor:crosshair;"></canvas></div>
+            <p style="font-size:0.85rem;color:var(--muted);margin-top:8px;">Click anywhere on the canvas to add a point.</p>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- Field Practical Box -->
     <div class="practical-box">
-      <h3>🌽 Field Practical Case Study: Fertilizer vs. Maize Yield</h3>
-      <p>An agronomist at Namulonge evaluates the impact of nitrogen fertilizer application ($X$, kg/ha) on maize grain yield ($Y$, t/ha):</p>
-      <ul>
-        <li><strong>Fitted Regression Equation:</strong> $$\hat{Y} = 2.15 + 0.038 X$$</li>
-        <li><strong>Correlation Coefficient:</strong> $r = 0.89$ ($p < 0.001$)</li>
-        <li><strong>Coefficient of Determination:</strong> $R^2 = (0.89)^2 = 0.792 \text{ (or } 79.2\%)$</li>
-      </ul>
-      <p><strong>Interpretation:</strong> Baseline unfertilized yield is $2.15\text{ t/ha}$. Each additional $1\text{ kg/ha}$ of nitrogen increases grain yield by $0.038\text{ t/ha}$. Nitrogen application explains <strong>79.2%</strong> of the variance in maize yield.</p>
+      <h3>🌽 Field Practical: Fertilizer vs. Maize Yield</h3>
+      <p>$$\hat{Y} = 2.15 + 0.038 X$$ · $r = 0.89$ · $R^2 = 0.792$ (79.2%)</p>
+      <p>Each extra 1 kg/ha nitrogen increases yield by 0.038 t/ha. Nitrogen explains 79.2% of yield variance.</p>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
     <div class="challenge-box" style="margin-top: 32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> A researcher calculates a Pearson correlation coefficient of $r = -0.84$ between tick count per animal and daily weight gain (grams). What does this negative coefficient mean, and does it prove that ticks cause weight loss?</p>
-
+      <p><strong>Question:</strong> $r = -0.84$ between tick count and daily weight gain. What does this mean? Does it prove ticks cause weight loss?</p>
       <button class="button primary-button" data-toggle="answer" data-target="m8-answer">Show Solution</button>
-
       <div id="m8-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> The value $r = -0.84$ indicates a <strong>strong inverse linear relationship</strong>: as tick count increases, daily weight gain significantly decreases. However, correlation does <em>not</em> imply causation; confounding factors like poor nutrition or underlying disease could simultaneously increase tick susceptibility and decrease weight gain.</p>
+        <p><strong>Answer:</strong> Strong inverse linear relationship. Correlation does <em>not</em> imply causation — confounders (nutrition, disease) may drive both.</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
     <p>Department of Biological Sciences & Agricultural Studies</p>
-    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+    <p><small>&copy; Interactive Biostatistics Study Lab.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
+  <script src="../js/modules/regression-sim.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.RegressionSimulation) return;
+      const sim = new RegressionSimulation('regressionCanvas', {
+        data: [{ x: 10, y: 2.1 }, { x: 20, y: 2.8 }, { x: 30, y: 3.2 }, { x: 40, y: 3.7 }, { x: 50, y: 4.1 }, { x: 60, y: 4.5 }, { x: 70, y: 4.8 }, { x: 80, y: 5.2 }],
+        xLabel: 'Nitrogen (kg/ha)', yLabel: 'Yield (t/ha)', maxX: 100, maxY: 7
+      });
+      document.getElementById('reg-reset-btn')?.addEventListener('click', () => {
+        sim.maxX = 100; sim.maxY = 7; sim.xLabel = 'Nitrogen (kg/ha)'; sim.yLabel = 'Yield (t/ha)';
+        sim.resetData([{ x: 10, y: 2.1 }, { x: 20, y: 2.8 }, { x: 30, y: 3.2 }, { x: 40, y: 3.7 }, { x: 50, y: 4.1 }, { x: 60, y: 4.5 }, { x: 70, y: 4.8 }, { x: 80, y: 5.2 }]);
+      });
+      document.getElementById('reg-rain-btn')?.addEventListener('click', () => {
+        sim.maxX = 1600; sim.maxY = 700; sim.xLabel = 'Rainfall (mm)'; sim.yLabel = 'Coffee yield (kg)';
+        sim.resetData([{ x: 1100, y: 400 }, { x: 1200, y: 440 }, { x: 1300, y: 485 }, { x: 1400, y: 530 }, { x: 1500, y: 570 }]);
+      });
+      document.getElementById('reg-clear-btn')?.addEventListener('click', () => sim.resetData([]));
+    });
+  </script>
 </body>
 </html>
