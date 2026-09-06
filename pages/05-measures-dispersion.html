@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 05: Measures of Dispersion & Variability | BISC 1254</title>
+  <title>Module 05: Measures of Dispersion | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
         <p class="course-code">BISC 1254 | Module 05</p>
         <h1>Measures of Dispersion & Biological Variability</h1>
-        <p class="subtitle">Quantifying population spread, sample variance, standard deviation, and relative variability across biological systems.</p>
+        <p class="subtitle">Range, IQR, variance, standard deviation, and coefficient of variation.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 2</span>
-        <small>Descriptive Biostatistics</small>
-      </div>
+      <div class="header-badge"><span>UNIT 2</span><small>Descriptive Biostatistics</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html">01. Data & Variables</a>
@@ -39,139 +40,111 @@
       <a href="12-data-collection.html">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
         <h2>Why Measure Dispersion?</h2>
-        <p>Central tendency alone fails to describe a biological population. Two cattle herds may share an identical mean milk yield of $15.0\text{ L/day}$, yet one herd may range tightly between $14\text{ L}$ and $16\text{ L}$, while another varies wildly from $5\text{ L}$ to $25\text{ L}$. <strong>Dispersion metrics</strong> measure the degree of scatter or variability around the center.</p>
+        <p>Two herds can share the same mean milk yield yet differ widely in spread. Dispersion metrics quantify scatter around the center.</p>
       </div>
       <div class="significance-box" style="margin: 0;">
-        <h3>📌 Sample Variance & Standard Deviation</h3>
-        <p><strong>Sample Variance ($s^2$):</strong></p>
-        <p>$$s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}$$</p>
-        <p><strong>Sample Standard Deviation ($s$):</strong></p>
-        <p>$$s = \sqrt{s^2}$$</p>
+        <h3>📌 Variance & SD</h3>
+        <p>$$s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1} \qquad s = \sqrt{s^2}$$</p>
       </div>
     </section>
-
-    <!-- Dispersion Metrics Comparison Matrix -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Metric Matrix</p>
-      <h2>Measures of Dispersion Compared</h2>
-
-      <div class="data-table-wrapper">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th>Formula / Calculation</th>
-              <th>Units</th>
-              <th>Sensitivity to Outliers</th>
-              <th>Primary Biological Application</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Range</strong></td>
-              <td>$$\text{Max} - \text{Min}$$</td>
-              <td>Original units</td>
-              <td><strong>Extremely High</strong></td>
-              <td>Quick rough estimate of spread in field surveys.</td>
-            </tr>
-            <tr>
-              <td><strong>Interquartile Range (IQR)</strong></td>
-              <td>$$Q_3 - Q_1$$</td>
-              <td>Original units</td>
-              <td><strong>Robust</strong> (Insensitive)</td>
-              <td>Summarizing skewed biological traits alongside the Median.</td>
-            </tr>
-            <tr>
-              <td><strong>Sample Variance ($s^2$)</strong></td>
-              <td>$$\frac{\sum (x_i - \bar{x})^2}{n - 1}$$</td>
-              <td>Squared units ($\text{unit}^2$)</td>
-              <td><strong>High</strong></td>
-              <td>Intermediate calculation for ANOVA and hypothesis tests.</td>
-            </tr>
-            <tr>
-              <td><strong>Standard Deviation ($s$)</strong></td>
-              <td>$$\sqrt{s^2}$$</td>
-              <td>Original units</td>
-              <td><strong>High</strong></td>
-              <td>Standard reporting metric for normally distributed data.</td>
-            </tr>
-            <tr>
-              <td><strong>Coefficient of Variation ($CV\%$)</strong></td>
-              <td>$$\left(\frac{s}{\bar{x}}\right) \times 100\%$$</td>
-              <td>Percentage ($\%$)</td>
-              <td><strong>Moderate</strong></td>
-              <td>Comparing relative variability between traits with different measurement units.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Bessel's Correction Deep Dive -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Statistical Theory</p>
-      <h2>Bessel's Correction ($n - 1$) vs. Population Division ($N$)</h2>
-
-      <div class="module-grid">
-        <div class="module-card">
-          <div class="module-number">1</div>
-          <h3>Population Variance ($\sigma^2$)</h3>
-          <p>Divided by total population size $N$ when measuring every single member of a population:</p>
-          <p>$$\sigma^2 = \frac{\sum (x_i - \mu)^2}{N}$$</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">2</div>
-          <h3>Sample Variance ($s^2$)</h3>
-          <p>Divided by degrees of freedom ($n - 1$) to correct for the underestimation of population variance when sampling:</p>
-          <p>$$s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}$$</p>
-        </div>
-
-        <div class="module-card">
-          <div class="module-number">3</div>
-          <h3>Unbiased Estimator</h3>
-          <p>Because sample observations cluster around the sample mean $\bar{x}$ tighter than the true population mean $\mu$, dividing by $n$ underestimates spread. Using $n-1$ yields an unbiased estimate of $\sigma^2$.</p>
+    <section style="margin-top:40px;" class="interactive-lab">
+      <p class="section-label">Interactive Visualization Lab</p>
+      <h2>Box plot & spread — change the data and see IQR and outliers</h2>
+      <div class="sim-card">
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div class="control-group">
+              <label for="dispData">Data (comma-separated)</label>
+              <textarea id="dispData" rows="4" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);">11.5, 12.0, 13.2, 13.5, 14.1, 14.8, 15.0, 15.2, 15.5, 16.0, 16.5, 17.0, 17.5, 18.0, 18.5, 22.0</textarea>
+            </div>
+            <button class="button primary-button" id="dispRedraw" style="width:100%;">Update box plot</button>
+            <div class="metrics-grid" style="margin-top:12px;">
+              <div class="metric-card"><span class="metric-label">Min</span><span class="metric-value" id="dispMin">—</span></div>
+              <div class="metric-card"><span class="metric-label">Q1</span><span class="metric-value" id="dispQ1">—</span></div>
+              <div class="metric-card gold"><span class="metric-label">Median</span><span class="metric-value" id="dispMed">—</span></div>
+              <div class="metric-card"><span class="metric-label">Q3</span><span class="metric-value" id="dispQ3">—</span></div>
+              <div class="metric-card"><span class="metric-label">Max</span><span class="metric-value" id="dispMax">—</span></div>
+              <div class="metric-card alert"><span class="metric-label">IQR</span><span class="metric-value" id="dispIQR">—</span></div>
+            </div>
+          </div>
+          <div class="canvas-container"><canvas id="dispersionCanvas" width="560" height="220"></canvas></div>
         </div>
       </div>
     </section>
-
-    <!-- Field Practical Box -->
     <div class="practical-box">
-      <h3>🌽 Field Practical Exercise: Coefficient of Variation ($CV\%$)</h3>
-      <p>A researcher compares experimental uniformity across two different agricultural trials in Wakiso:</p>
-      <ul>
-        <li><strong>Trial A (Egg Weights):</strong> $\bar{x} = 60.5\text{ g}$, $s = 2.8\text{ g}$ $\rightarrow$ $CV = \left(\frac{2.8}{60.5}\right) \times 100\% = 4.63\%$</li>
-        <li><strong>Trial B (Maize Yield/Plot):</strong> $\bar{x} = 14.8\text{ kg}$, $s = 2.2\text{ kg}$ $\rightarrow$ $CV = \left(\frac{2.2}{14.8}\right) \times 100\% = 14.86\%$</li>
-      </ul>
-      <p><strong>Conclusion:</strong> Although maize yield has a smaller standard deviation ($2.2$) than egg weight in numeric magnitude, maize yield exhibits over <strong>three times greater relative variability</strong> ($14.86\%$ vs $4.63\%$).</p>
+      <h3>🌽 Coefficient of Variation</h3>
+      <p>Egg weights: $\bar{x}=60.5$, $s=2.8$ → $CV=4.63\%$. Maize yield: $\bar{x}=14.8$, $s=2.2$ → $CV=14.86\%$. Maize has greater relative variability despite a smaller $s$.</p>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
-    <div class="challenge-box" style="margin-top: 32px;">
+    <div class="challenge-box" style="margin-top:32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> Why can you NOT compare the standard deviation of cattle body weight ($s = 35\text{ kg}$) directly against the standard deviation of serum total protein ($s = 0.8\text{ g/dL}$) to determine which trait is more variable?</p>
-
+      <p><strong>Question:</strong> Why can you not compare $s=35$ kg (body weight) directly with $s=0.8$ g/dL (serum protein) to say which trait is more variable?</p>
       <button class="button primary-button" data-toggle="answer" data-target="m5-answer">Show Solution</button>
-
       <div id="m5-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> Standard deviations are expressed in original measurement units ($\text{kg}$ vs $\text{g/dL}$) and depend heavily on the scale of measurement. To compare variability between attributes with different units or vastly different means, you must calculate the unitless <strong>Coefficient of Variation ($CV\%$)</strong>.</p>
+        <p><strong>Answer:</strong> Different units and scales. Use the unitless <strong>Coefficient of Variation (CV%)</strong> to compare relative variability.</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
-    <p>Department of Biological Sciences & Agricultural Studies</p>
-    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+    <p><small>&copy; Interactive Biostatistics Study Lab.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
+  <script>
+  (function(){
+    const canvas = document.getElementById('dispersionCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    function parse(s){ return s.split(/[\s,;]+/).map(Number).filter(n=>!isNaN(n)&&isFinite(n)).sort((a,b)=>a-b); }
+    function quantile(arr, q){
+      const pos = (arr.length-1)*q;
+      const base = Math.floor(pos), rest = pos-base;
+      return arr[base] + (arr[base+1]!==undefined ? rest*(arr[base+1]-arr[base]) : 0);
+    }
+    function draw(){
+      const data = parse(document.getElementById('dispData').value);
+      if (data.length < 4) return;
+      const min = data[0], max = data[data.length-1];
+      const q1 = quantile(data, 0.25), med = quantile(data, 0.5), q3 = quantile(data, 0.75);
+      const iqr = q3 - q1;
+      document.getElementById('dispMin').textContent = min.toFixed(1);
+      document.getElementById('dispQ1').textContent = q1.toFixed(1);
+      document.getElementById('dispMed').textContent = med.toFixed(1);
+      document.getElementById('dispQ3').textContent = q3.toFixed(1);
+      document.getElementById('dispMax').textContent = max.toFixed(1);
+      document.getElementById('dispIQR').textContent = iqr.toFixed(1);
+      const dpr = window.devicePixelRatio||1;
+      const w = canvas.clientWidth||560, h = 220;
+      canvas.width = w*dpr; canvas.height = h*dpr;
+      canvas.style.width = w+'px'; canvas.style.height = h+'px';
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      ctx.clearRect(0,0,w,h);
+      const pad = 50, cy = h/2;
+      const xTo = v => pad + ((v - (min-1)) / ((max+1)-(min-1))) * (w - pad*2);
+      ctx.strokeStyle = '#334155'; ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(xTo(min), cy); ctx.lineTo(xTo(q1), cy);
+      ctx.moveTo(xTo(q3), cy); ctx.lineTo(xTo(max), cy);
+      ctx.moveTo(xTo(min), cy-12); ctx.lineTo(xTo(min), cy+12);
+      ctx.moveTo(xTo(max), cy-12); ctx.lineTo(xTo(max), cy+12);
+      ctx.stroke();
+      const left = xTo(q1), right = xTo(q3);
+      ctx.fillStyle = 'rgba(15,118,110,0.25)';
+      ctx.fillRect(left, cy-30, right-left, 60);
+      ctx.strokeStyle = '#0f766e'; ctx.strokeRect(left, cy-30, right-left, 60);
+      ctx.strokeStyle = '#e11d48'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(xTo(med), cy-30); ctx.lineTo(xTo(med), cy+30); ctx.stroke();
+      ctx.fillStyle = '#5d6f63'; ctx.font = '11px system-ui'; ctx.textAlign = 'center';
+      [min,q1,med,q3,max].forEach(v => ctx.fillText(v.toFixed(1), xTo(v), cy+48));
+    }
+    document.getElementById('dispRedraw')?.addEventListener('click', draw);
+    document.getElementById('dispData')?.addEventListener('change', draw);
+    draw();
+  })();
+  </script>
 </body>
 </html>
