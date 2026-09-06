@@ -3,31 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 02: Sampling Techniques & Methods | BISC 1254</title>
+  <title>Module 03: Frequency Distributions | BISC 1254</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/visualizations.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
-  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="header-content">
       <div>
-        <p class="course-code">BISC 1254 | Module 02</p>
-        <h1>Sampling Techniques & Data Collection</h1>
-        <p class="subtitle">Mastering probability sampling design, sample size selection, and sampling error minimization in biological systems.</p>
+        <p class="course-code">BISC 1254 | Module 03</p>
+        <h1>Frequency Distributions</h1>
+        <p class="subtitle">Construct frequency tables, histograms, bar charts and cumulative ogives from biological data.</p>
       </div>
-      <div class="header-badge">
-        <span>UNIT 1</span>
-        <small>Data Foundations</small>
-      </div>
+      <div class="header-badge"><span>UNIT 1</span><small>Descriptive Statistics</small></div>
     </div>
-
     <nav class="navigation">
       <a href="../index.html">&larr; Home</a>
       <a href="01-intro-data.html">01. Data & Variables</a>
-      <a href="02-sampling-methods.html" class="active">02. Sampling</a>
-      <a href="03-frequency-distributions.html">03. Distributions</a>
+      <a href="02-sampling-methods.html">02. Sampling</a>
+      <a href="03-frequency-distributions.html" class="active">03. Distributions</a>
       <a href="04-central-tendency.html">04. Central Tendency</a>
       <a href="05-measures-dispersion.html">05. Dispersion</a>
       <a href="06-probability.html">06. Probability</a>
@@ -39,156 +44,169 @@
       <a href="12-data-collection.html">12. Field Collection</a>
     </nav>
   </header>
-
   <main>
-    <!-- Core Theoretical Concept -->
     <section class="hero">
       <div>
         <p class="section-label">Core Theory</p>
-        <h2>Population vs. Sample</h2>
-        <p>A <strong>Population ($N$)</strong> comprises the complete set of all individual items or biological entities under study, while a <strong>Sample ($n$)</strong> is a representative subset chosen to infer properties about the population. Proper sampling designs prevent selection bias and ensure valid inferential statistics.</p>
+        <h2>Organising Raw Biological Data</h2>
+        <p>A <strong>frequency distribution</strong> summarises how often each value (or class interval) occurs. For continuous data we form class intervals and build a <strong>histogram</strong>. For categorical data we use a <strong>bar chart</strong>. The cumulative frequency curve (ogive) helps locate percentiles.</p>
       </div>
-      <div class="significance-box" style="margin: 0;">
-        <h3>📌 Key Principle</h3>
-        <p><strong>Sampling Error</strong> ($|\bar{x} - \mu|$) measures the discrepancy between a sample estimate and the true population parameter. It decreases as sample size ($n$) increases and when stratification accounts for field heterogeneity.</p>
-      </div>
-    </section>
-
-    <!-- Sampling Methods Matrix -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Probability Sampling Framework</p>
-      <h2>Probability Sampling Techniques</h2>
-
-      <div class="data-table-wrapper">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Sampling Design</th>
-              <th>How It Works</th>
-              <th>Key Advantage</th>
-              <th>Biological / Agricultural Application</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Simple Random (SRS)</strong></td>
-              <td>Every unit in population has an equal, independent chance of selection.</td>
-              <td>Completely unbiased, simple statistical setup.</td>
-              <td>Selecting 20 random chickens from a homogeneous indoor flock.</td>
-            </tr>
-            <tr>
-              <td><strong>Stratified Random</strong></td>
-              <td>Population divided into homogeneous strata (subgroups); random samples taken from each.</td>
-              <td>Ensures representation across gradients (e.g., soil fertility, slope).</td>
-              <td>Sampling cassava yields across North (High Fertility) vs South (Low Fertility) plots.</td>
-            </tr>
-            <tr>
-              <td><strong>Systematic</strong></td>
-              <td>Selects every $k^{\text{th}}$ item ($k = N/n$) after a random start point.</td>
-              <td>Easy and efficient for field layout and line transects.</td>
-              <td>Sampling pest counts on every $5^{\text{th}}$ maize plant along a crop row.</td>
-            </tr>
-            <tr>
-              <td><strong>Cluster</strong></td>
-              <td>Population grouped into clusters; entire clusters randomly chosen for measuring.</td>
-              <td>Cost-effective for widely dispersed field geography.</td>
-              <td>Selecting 3 entire sub-counties in Mukono district to survey cattle tick burden.</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="significance-box" style="margin:0;">
+        <h3>📌 Class Interval Formula</h3>
+        <p>Approximate number of classes (Sturges):</p>
+        <p>$$k = 1 + 3.322 \log_{10} n$$</p>
+        <p>Class width $w \approx \dfrac{\text{Range}}{k}$</p>
       </div>
     </section>
-
-    <!-- Interactive Simulator Module -->
-    <section style="margin-top: 36px;">
-      <p class="section-label">Interactive Field Laboratory</p>
-      <h2>Cassava Yield Field Simulator</h2>
-      <p>Simulate sampling from a 100-plot cassava trial field ($10 \times 10$ grid). The North half of the field features higher soil fertility than the South half. Run different sampling designs to compare estimate precision and sampling error against the true field average.</p>
-
+    <section style="margin-top:36px;">
+      <p class="section-label">Interactive Visualization Lab</p>
+      <h2>Change the data — watch the distribution shape change</h2>
+      <p>Edit the values or switch chart type. Histogram shows continuous class frequencies; bar chart compares categories; line chart shows cumulative frequency ogive.</p>
       <div class="sim-card">
-        <div class="sim-header">
-          <h3>🌱 Plot Grid & Yield Visualizer</h3>
-          <p>Gold squares highlight sampled plots ($n$).</p>
-        </div>
-
         <div class="sim-grid">
-          <!-- Controls Panel -->
           <div class="sim-controls">
             <div class="control-group">
-              <label for="samplingMethod">Sampling Method</label>
-              <select id="samplingMethod">
-                <option value="srs">Simple Random Sampling (SRS)</option>
-                <option value="stratified">Stratified Random (North/South)</option>
-                <option value="systematic">Systematic Sampling (Interval k)</option>
-                <option value="cluster">Cluster Sampling (Row Clusters)</option>
+              <label for="chartTypeSelect">Chart type</label>
+              <select id="chartTypeSelect">
+                <option value="histogram">Histogram (class frequencies)</option>
+                <option value="bar">Bar chart (categories)</option>
+                <option value="line">Line / cumulative ogive</option>
               </select>
             </div>
-
             <div class="control-group">
-              <label for="sampleSize">Sample Size ($n$): <span class="value-display" id="sampleSizeVal">10</span></label>
-              <input type="range" id="sampleSize" min="4" max="40" step="2" value="10" oninput="document.getElementById('sampleSizeVal').textContent = this.value">
+              <label for="freqDataInput">Data values (comma-separated)</label>
+              <textarea id="freqDataInput" rows="5" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-family:monospace;">54.6, 55.8, 56.2, 56.7, 56.9, 57.2, 57.6, 57.8, 57.9, 58.1, 58.3, 58.4, 58.7, 58.9, 59.0, 59.1, 59.3, 59.5, 59.7, 59.8, 60.1, 60.3, 60.4, 60.5, 60.8, 60.9, 61.0, 61.2, 61.3, 61.5, 61.7, 61.9, 62.0, 62.1, 62.2, 62.4, 62.5, 62.8, 63.0, 63.2, 63.5, 63.7, 63.8, 64.1, 64.2, 64.8, 65.0, 65.4, 66.1</textarea>
             </div>
-
-            <button id="runSamplingBtn" class="button primary-button" style="width: 100%; margin-top: 10px;">Execute Sample Draw</button>
+            <div class="control-group">
+              <label for="binCountSlider">Number of bins: <span class="value-display" id="binCountVal">8</span></label>
+              <input type="range" id="binCountSlider" min="4" max="16" value="8" step="1">
+            </div>
+            <button type="button" class="button primary-button" id="redrawFreqBtn" style="width:100%;margin-top:8px;">Redraw chart</button>
+            <button type="button" class="button secondary-button" id="loadEggsBtn" style="width:100%;margin-top:8px;">Load Wakiso egg weights</button>
+            <button type="button" class="button secondary-button" id="loadMalariaBtn" style="width:100%;margin-top:8px;">Load monthly malaria cases</button>
+            <div class="metrics-grid" style="margin-top:16px;">
+              <div class="metric-card"><span class="metric-label">n</span><span class="metric-value" id="freqN">—</span></div>
+              <div class="metric-card gold"><span class="metric-label">Mean</span><span class="metric-value" id="freqMean">—</span></div>
+              <div class="metric-card"><span class="metric-label">Range</span><span class="metric-value" id="freqRange">—</span></div>
+            </div>
           </div>
-
-          <!-- Canvas & Display Area -->
           <div>
-            <div class="canvas-container">
-              <canvas id="samplingCanvas" width="480" height="360"></canvas>
-            </div>
-
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <span class="metric-label">True Pop Mean ($\mu$)</span>
-                <span class="metric-value" id="popMeanDisplay">--</span>
-              </div>
-              <div class="metric-card gold">
-                <span class="metric-label">Sample Mean ($\bar{x}$)</span>
-                <span class="metric-value" id="sampleMeanDisplay">--</span>
-              </div>
-              <div class="metric-card alert">
-                <span class="metric-label">Sampling Error</span>
-                <span class="metric-value" id="samplingErrorDisplay">--</span>
-              </div>
-            </div>
+            <div class="canvas-container"><canvas id="freqChartCanvas" width="560" height="340"></canvas></div>
+            <p style="font-size:0.85rem;color:var(--muted);margin-top:8px;">Tip: increase bins to reveal multimodal shape; decrease for smoother overview. Switch to line for cumulative ogive.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Field Practical Box -->
     <div class="practical-box">
-      <h3>🚜 Practical Field Protocol: Stratified Sampling</h3>
-      <p>When sampling an agricultural field with environmental gradients (such as a slope leading toward a wetland):</p>
-      <ul>
-        <li>Divide the field into distinct uniform zones (Strata: Upper Slope, Mid Slope, Valley Floor).</li>
-        <li>Assign plot numbers within each stratum.</li>
-        <li>Use proportional allocation to draw random samples independently from each stratum.</li>
-        <li>Combine stratum means weighted by area size to obtain an unbiased field yield estimate.</li>
-      </ul>
+      <h3>🌽 Field Practical: Grouping Maize Yields</h3>
+      <p>A researcher records 48 maize plot yields (t/ha). Range is $2.1$–$5.8$. Using Sturges’ rule:</p>
+      <p>$$k = 1 + 3.322 \log_{10} 48 \approx 6.6 \rightarrow 7 \text{ classes}$$</p>
+      <p>Class width $w \approx (5.8-2.1)/7 \approx 0.53$ (often rounded to $0.5$). The histogram shows whether yield is approximately normal or skewed — critical before choosing a parametric test.</p>
     </div>
-
-    <!-- Knowledge Self-Check Box -->
-    <div class="challenge-box" style="margin-top: 32px;">
+    <div class="challenge-box" style="margin-top:32px;">
       <h3>💡 Knowledge Check</h3>
-      <p><strong>Question:</strong> Why does Stratified Random Sampling yield lower sampling error than Simple Random Sampling when a field exhibits a strong soil fertility gradient?</p>
-
-      <button class="button primary-button" data-toggle="answer" data-target="m2-answer">Show Solution</button>
-
-      <div id="m2-answer" class="hidden-answer">
-        <p><strong>Answer:</strong> Stratified random sampling accounts for variation between strata by forcing sample units to be drawn proportionally from both high and low fertility zones. Simple random sampling risks under-sampling or over-sampling high-yield areas purely by chance, resulting in higher variance and sampling error.</p>
+      <p><strong>Question:</strong> Why should the vertical axis of a histogram start at zero, and what happens if class intervals have unequal widths?</p>
+      <button class="button primary-button" data-toggle="answer" data-target="m3-answer">Show Solution</button>
+      <div id="m3-answer" class="hidden-answer">
+        <p><strong>Answer:</strong> Starting at zero prevents visual exaggeration. Unequal widths make bar area no longer proportional to frequency; plot density (frequency/width) instead of raw frequency.</p>
       </div>
     </div>
   </main>
-
   <footer class="site-footer">
     <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
     <p>Department of Biological Sciences & Agricultural Studies</p>
     <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
   </footer>
-
   <script src="../js/app.js"></script>
-  <script src="../js/modules/sampling-sim.js"></script>
+  <script>
+  (function () {
+    const canvas = document.getElementById('freqChartCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const eggs = [54.6,55.8,56.2,56.7,56.9,57.2,57.6,57.8,57.9,58.1,58.3,58.4,58.7,58.9,59.0,59.1,59.3,59.5,59.7,59.8,60.1,60.3,60.4,60.5,60.8,60.9,61.0,61.2,61.3,61.5,61.7,61.9,62.0,62.1,62.2,62.4,62.5,62.8,63.0,63.2,63.5,63.7,63.8,64.1,64.2,64.8,65.0,65.4,66.1];
+    const malaria = [42,55,68,91,120,145,132,98,76,61,48,39];
+    const malariaLabels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    function parseData(str) { return str.split(/[\s,;]+/).map(Number).filter(n => !isNaN(n) && isFinite(n)); }
+    function mean(arr) { return arr.reduce((a,b)=>a+b,0)/arr.length; }
+    function setupCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      const w = Math.max(400, rect.width || 560);
+      const h = 340;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return { w, h };
+    }
+    function drawHistogram(data, bins) {
+      const { w, h } = setupCanvas(); const pad = 45;
+      ctx.clearRect(0, 0, w, h); if (!data.length) return;
+      const min = Math.min(...data), max = Math.max(...data);
+      const width = (max - min) / bins || 1;
+      const counts = new Array(bins).fill(0);
+      data.forEach(v => { let i = Math.floor((v - min) / width); if (i === bins) i = bins - 1; if (i >= 0 && i < bins) counts[i]++; });
+      const maxC = Math.max(...counts, 1);
+      ctx.strokeStyle = '#475569'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(pad, pad/2); ctx.lineTo(pad, h - pad); ctx.lineTo(w - pad/2, h - pad); ctx.stroke();
+      const barW = (w - pad * 1.5) / bins;
+      counts.forEach((c, i) => {
+        const bh = (c / maxC) * (h - pad * 1.5);
+        const x = pad + i * barW, y = h - pad - bh;
+        ctx.fillStyle = 'rgba(15, 118, 110, 0.55)'; ctx.fillRect(x + 2, y, barW - 4, bh);
+        ctx.strokeStyle = '#0f766e'; ctx.strokeRect(x + 2, y, barW - 4, bh);
+        if (c > 0) { ctx.fillStyle = '#17251d'; ctx.font = '11px system-ui'; ctx.textAlign = 'center'; ctx.fillText(c, x + barW/2, y - 4); }
+      });
+      ctx.fillStyle = '#5d6f63'; ctx.font = '11px system-ui'; ctx.textAlign = 'center';
+      ctx.fillText('Value (class midpoint)', w/2, h - 8);
+    }
+    function drawBar(labels, values) {
+      const { w, h } = setupCanvas(); const pad = 45;
+      ctx.clearRect(0, 0, w, h);
+      const maxV = Math.max(...values, 1); const barW = (w - pad * 1.5) / values.length;
+      ctx.strokeStyle = '#475569'; ctx.beginPath(); ctx.moveTo(pad, pad/2); ctx.lineTo(pad, h - pad); ctx.lineTo(w - pad/2, h - pad); ctx.stroke();
+      values.forEach((v, i) => {
+        const bh = (v / maxV) * (h - pad * 1.5); const x = pad + i * barW, y = h - pad - bh;
+        ctx.fillStyle = 'rgba(21, 115, 71, 0.7)'; ctx.fillRect(x + 4, y, barW - 8, bh);
+        ctx.fillStyle = '#17251d'; ctx.font = '10px system-ui'; ctx.textAlign = 'center';
+        ctx.fillText(v, x + barW/2, y - 4); ctx.fillText(labels[i] || '', x + barW/2, h - pad + 14);
+      });
+    }
+    function drawLine(data, cumulative) {
+      const { w, h } = setupCanvas(); const pad = 45;
+      ctx.clearRect(0, 0, w, h); if (!data.length) return;
+      let ys; if (cumulative) { const sorted = [...data].sort((a,b)=>a-b); ys = sorted.map((_,i) => (i+1)/sorted.length * 100); data = sorted; } else { ys = data; }
+      const minX = Math.min(...data), maxX = Math.max(...data), minY = 0, maxY = Math.max(...ys, 1);
+      const xTo = x => pad + ((x - minX) / (maxX - minX || 1)) * (w - pad * 1.5);
+      const yTo = y => (h - pad) - ((y - minY) / (maxY - minY || 1)) * (h - pad * 1.5);
+      ctx.strokeStyle = '#475569'; ctx.beginPath(); ctx.moveTo(pad, pad/2); ctx.lineTo(pad, h - pad); ctx.lineTo(w - pad/2, h - pad); ctx.stroke();
+      ctx.beginPath(); ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 2.5;
+      ys.forEach((y, i) => { const cx = xTo(data[i]), cy = yTo(y); if (i === 0) ctx.moveTo(cx, cy); else ctx.lineTo(cx, cy); });
+      ctx.stroke();
+      ys.forEach((y, i) => { ctx.beginPath(); ctx.arc(xTo(data[i]), yTo(y), 3.5, 0, Math.PI*2); ctx.fillStyle = '#0f766e'; ctx.fill(); });
+    }
+    function update() {
+      const type = document.getElementById('chartTypeSelect').value;
+      const raw = document.getElementById('freqDataInput').value;
+      const bins = parseInt(document.getElementById('binCountSlider').value, 10);
+      document.getElementById('binCountVal').textContent = bins;
+      let data = parseData(raw);
+      const isMalaria = data.length === 12 && Math.abs(mean(data) - 86) < 30;
+      document.getElementById('freqN').textContent = data.length;
+      document.getElementById('freqMean').textContent = data.length ? mean(data).toFixed(1) : '—';
+      document.getElementById('freqRange').textContent = data.length ? (Math.max(...data)-Math.min(...data)).toFixed(1) : '—';
+      if (type === 'histogram') drawHistogram(data, bins);
+      else if (type === 'bar') { if (isMalaria) drawBar(malariaLabels, data); else if (data.length <= 15) drawBar(data.map((_,i)=>String(i+1)), data); else drawHistogram(data, bins); }
+      else drawLine(data, true);
+    }
+    document.getElementById('chartTypeSelect').addEventListener('change', update);
+    document.getElementById('binCountSlider').addEventListener('input', update);
+    document.getElementById('redrawFreqBtn').addEventListener('click', update);
+    document.getElementById('freqDataInput').addEventListener('change', update);
+    document.getElementById('loadEggsBtn').addEventListener('click', () => { document.getElementById('freqDataInput').value = eggs.join(', '); document.getElementById('chartTypeSelect').value = 'histogram'; update(); });
+    document.getElementById('loadMalariaBtn').addEventListener('click', () => { document.getElementById('freqDataInput').value = malaria.join(', '); document.getElementById('chartTypeSelect').value = 'bar'; update(); });
+    window.addEventListener('resize', update);
+    update();
+  })();
+  </script>
 </body>
 </html>
