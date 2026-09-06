@@ -1,0 +1,56 @@
+{
+  "datasetInfo": {
+    "title": "Small Ruminant Weight Gain Under Legume Forage Supplementation",
+    "courseCode": "BISC 1254",
+    "unit": "Body Weight (kg)",
+    "location": "Kotido Livestock Research Centre, Karamoja, Uganda",
+    "description": "12-week feeding trial evaluating live body weight gain in Small East African goats under natural pasture grazing vs. Calliandra calothyrsus forage supplementation."
+  },
+  "summaryStatistics": {
+    "controlPastureOnly": {
+      "sampleSize": 12,
+      "meanInitialWeight": 14.2,
+      "meanFinalWeight": 16.8,
+      "meanWeightGain": 2.6,
+      "stdDevGain": 0.65,
+      "minGain": 1.5,
+      "maxGain": 3.7
+    },
+    "supplementedCalliandra": {
+      "sampleSize": 12,
+      "meanInitialWeight": 14.5,
+      "meanFinalWeight": 20.3,
+      "meanWeightGain": 5.8,
+      "stdDevGain": 0.92,
+      "minGain": 4.2,
+      "maxGain": 7.4
+    }
+  },
+  "records": [
+    { "id": 1, "tagId": "KTD-01", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Female", "initialWeightKg": 14.0, "finalWeightKg": 16.5, "weightGainKg": 2.5 },
+    { "id": 2, "tagId": "KTD-02", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Male", "initialWeightKg": 15.2, "finalWeightKg": 18.0, "weightGainKg": 2.8 },
+    { "id": 3, "tagId": "KTD-03", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Female", "initialWeightKg": 13.5, "finalWeightKg": 15.8, "weightGainKg": 2.3 },
+    { "id": 4, "tagId": "KTD-04", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Male", "initialWeightKg": 14.8, "finalWeightKg": 18.5, "weightGainKg": 3.7 },
+    { "id": 5, "tagId": "KTD-05", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Female", "initialWeightKg": 13.8, "finalWeightKg": 15.3, "weightGainKg": 1.5 },
+    { "id": 6, "tagId": "KTD-06", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Male", "initialWeightKg": 14.5, "finalWeightKg": 17.4, "weightGainKg": 2.9 },
+    { "id": 7, "tagId": "KTD-07", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Female", "initialWeightKg": 14.1, "finalWeightKg": 16.8, "weightGainKg": 2.7 },
+    { "id": 8, "tagId": "KTD-08", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Male", "initialWeightKg": 15.0, "finalWeightKg": 18.1, "weightGainKg": 3.1 },
+    { "id": 9, "tagId": "KTD-09", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Female", "initialWeightKg": 13.2, "finalWeightKg": 15.1, "weightGainKg": 1.9 },
+    { "id": 10, "tagId": "KTD-10", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Male", "initialWeightKg": 14.6, "finalWeightKg": 17.2, "weightGainKg": 2.6 },
+    { "id": 11, "tagId": "KTD-11", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Female", "initialWeightKg": 13.9, "finalWeightKg": 16.0, "weightGainKg": 2.1 },
+    { "id": 12, "tagId": "KTD-12", "breed": "Small East African", "dietGroup": "Control (Pasture Only)", "sex": "Male", "initialWeightKg": 14.8, "finalWeightKg": 17.9, "weightGainKg": 3.1 },
+
+    { "id": 13, "tagId": "KTD-13", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Female", "initialWeightKg": 14.1, "finalWeightKg": 19.5, "weightGainKg": 5.4 },
+    { "id": 14, "tagId": "KTD-14", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Male", "initialWeightKg": 15.0, "finalWeightKg": 21.2, "weightGainKg": 6.2 },
+    { "id": 15, "tagId": "KTD-15", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Female", "initialWeightKg": 13.8, "finalWeightKg": 18.0, "weightGainKg": 4.2 },
+    { "id": 16, "tagId": "KTD-16", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Male", "initialWeightKg": 15.4, "finalWeightKg": 22.8, "weightGainKg": 7.4 },
+    { "id": 17, "tagId": "KTD-17", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Female", "initialWeightKg": 14.2, "finalWeightKg": 19.8, "weightGainKg": 5.6 },
+    { "id": 18, "tagId": "KTD-18", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Male", "initialWeightKg": 14.9, "finalWeightKg": 21.0, "weightGainKg": 6.1 },
+    { "id": 19, "tagId": "KTD-19", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Female", "initialWeightKg": 13.7, "finalWeightKg": 18.8, "weightGainKg": 5.1 },
+    { "id": 20, "tagId": "KTD-20", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Male", "initialWeightKg": 15.1, "finalWeightKg": 21.9, "weightGainKg": 6.8 },
+    { "id": 21, "tagId": "KTD-21", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Female", "initialWeightKg": 14.0, "finalWeightKg": 19.2, "weightGainKg": 5.2 },
+    { "id": 22, "tagId": "KTD-22", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Male", "initialWeightKg": 14.7, "finalWeightKg": 20.4, "weightGainKg": 5.7 },
+    { "id": 23, "tagId": "KTD-23", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Female", "initialWeightKg": 14.3, "finalWeightKg": 19.1, "weightGainKg": 4.8 },
+    { "id": 24, "tagId": "KTD-24", "breed": "Small East African", "dietGroup": "Calliandra Supplemented", "sex": "Male", "initialWeightKg": 15.2, "finalWeightKg": 22.3, "weightGainKg": 7.1 }
+  ]
+}

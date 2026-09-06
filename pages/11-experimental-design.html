@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 11: Experimental Design & Analysis of Variance (ANOVA) | BISC 1254</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/visualizations.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-content">
+      <div>
+        <p class="course-code">BISC 1254 | Module 11</p>
+        <h1>Experimental Design & ANOVA</h1>
+        <p class="subtitle">Structuring agricultural trials, controlling experimental error, partitioning variance, and executing Analysis of Variance.</p>
+      </div>
+      <div class="header-badge">
+        <span>UNIT 4</span>
+        <small>Advanced Biostatistical Selection</small>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="../index.html">&larr; Home</a>
+      <a href="01-intro-data.html">01. Data & Variables</a>
+      <a href="02-sampling-methods.html">02. Sampling</a>
+      <a href="03-frequency-distributions.html">03. Distributions</a>
+      <a href="04-central-tendency.html">04. Central Tendency</a>
+      <a href="05-measures-dispersion.html">05. Dispersion</a>
+      <a href="06-probability.html">06. Probability</a>
+      <a href="07-hypothesis-testing.html">07. Hypothesis Testing</a>
+      <a href="08-correlation-regression.html">08. Regression</a>
+      <a href="09-parametric-nonparametric.html">09. Test Selection</a>
+      <a href="10-excel-spss-guide.html">10. Software Guide</a>
+      <a href="11-experimental-design.html" class="active">11. ANOVA & Design</a>
+      <a href="12-data-collection.html">12. Field Collection</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Core Theoretical Concept -->
+    <section class="hero">
+      <div>
+        <p class="section-label">Core Theory</p>
+        <h2>Principles of Experimental Design & ANOVA</h2>
+        <p><strong>Experimental Design</strong> ensures that research trials yield unbiased, valid, and precise estimates of treatment effects while minimizing experimental error. When comparing three or more treatment means simultaneously, <strong>Analysis of Variance (ANOVA)</strong> partitions total dataset variation into explainable treatment effects and unexplained residual error.</p>
+      </div>
+      <div class="significance-box" style="margin: 0;">
+        <h3>📌 The Three Pillars of Design</h3>
+        <p>1. <strong>Replication:</strong> Applying treatments to multiple experimental units to estimate error.</p>
+        <p>2. <strong>Randomization:</strong> Allocating treatments randomly to eliminate selection bias.</p>
+        <p>3. <strong>Local Control (Blocking):</strong> Grouping homogenous units to isolate environmental gradients.</p>
+      </div>
+    </section>
+
+    <!-- Classical Experimental Designs Comparison Table -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Design Matrix</p>
+      <h2>Classical Agricultural Experimental Designs</h2>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Design Layout</th>
+              <th>Optimal Field Conditions</th>
+              <th>Structural Features</th>
+              <th>Primary Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Completely Randomized Design (CRD)</strong></td>
+              <td>Homogeneous conditions (e.g., greenhouses, laboratories, poultry cages)</td>
+              <td>Treatments assigned completely at random across all experimental units.</td>
+              <td>Maximum degrees of freedom for error; simple layout and analysis.</td>
+            </tr>
+            <tr>
+              <td><strong>Randomized Complete Block Design (RCBD)</strong></td>
+              <td>Heterogeneous fields with a single known gradient (e.g., soil fertility, slope)</td>
+              <td>Experimental units grouped into blocks perpendicular to the gradient; treatments randomized within blocks.</td>
+              <td>Isolates nuisance gradient variance from treatment variance, reducing experimental error.</td>
+            </tr>
+            <tr>
+              <td><strong>Factorial Design</strong></td>
+              <td>Simultaneous evaluation of two or more independent treatment factors</td>
+              <td>All combinations of factor levels are tested (e.g., 3 Nitrogen levels $\times$ 2 Crop Varieties).</td>
+              <td>Evaluates main effects as well as **interaction effects** between treatment factors.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- One-Way ANOVA Structure & Formulas -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Variance Partitioning</p>
+      <h2>Anatomy of a One-Way ANOVA Table</h2>
+      <p>ANOVA decomposes Total Sum of Squares ($SS_{\text{Total}}$) into Between-Group Treatment variation ($SS_{\text{Between}}$) and Within-Group Residual Error ($SS_{\text{Within}}$):</p>
+      <p>$$SS_{\text{Total}} = SS_{\text{Between}} + SS_{\text{Within}}$$</p>
+
+      <div class="data-table-wrapper" style="margin-top: 20px;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Source of Variation</th>
+              <th>Degrees of Freedom ($df$)</th>
+              <th>Sum of Squares ($SS$)</th>
+              <th>Mean Square ($MS$)</th>
+              <th>$F$-Statistic Calculated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Between Treatments</strong></td>
+              <td>$$k - 1$$</td>
+              <td>$$SS_{\text{Between}}$$</td>
+              <td>$$MS_{\text{Between}} = \frac{SS_{\text{Between}}}{k - 1}$$</td>
+              <td>$$F = \frac{MS_{\text{Between}}}{MS_{\text{Within}}}$$</td>
+            </tr>
+            <tr>
+              <td><strong>Within Residuals (Error)</strong></td>
+              <td>$$N - k$$</td>
+              <td>$$SS_{\text{Within}}$$</td>
+              <td>$$MS_{\text{Within}} = \frac{SS_{\text{Within}}}{N - k}$$</td>
+              <td>&mdash;</td>
+            </tr>
+            <tr>
+              <td><strong>Total Variation</strong></td>
+              <td>$$N - 1$$</td>
+              <td>$$SS_{\text{Total}}$$</td>
+              <td>&mdash;</td>
+              <td>&mdash;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Post-Hoc Multiple Comparisons -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Post-Hoc Analysis</p>
+      <h2>Post-Hoc Multiple Comparison Tests</h2>
+
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-number">1</div>
+          <h3>Why Post-Hoc Tests Are Needed</h3>
+          <p>A significant ANOVA $F$-test ($p < 0.05$) indicates that at least one treatment group mean differs from another, but does <em>not</em> pinpoint which specific groups differ.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">2</div>
+          <h3>Tukey's Honestly Significant Difference (HSD)</h3>
+          <p>Controls the overall Family-Wise Error Rate ($\alpha = 0.05$) when performing pairwise comparisons between all possible group pairs.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">3</div>
+          <h3>Fisher's Least Significant Difference (LSD)</h3>
+          <p>Calculates the minimum required difference between two means for significance. Highly sensitive but increases Type I error risk with many comparisons.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field Practical Box -->
+    <div class="practical-box">
+      <h3>🌱 Field Practical Case Study: Namulonge Cassava Fertilizer Trial</h3>
+      <p>An agronomist evaluates 3 fertilizer formulations ($k=3$) on cassava yield ($t/ha$) using 5 plot replicates per treatment ($N=15$ total plots):</p>
+      <ul>
+        <li><strong>ANOVA Output:</strong> $SS_{\text{Between}} = 142.8$, $df_{\text{Between}} = 2 \implies MS_{\text{Between}} = 71.4$</li>
+        <li><strong>Residual Error:</strong> $SS_{\text{Within}} = 38.4$, $df_{\text{Within}} = 12 \implies MS_{\text{Within}} = 3.2$</li>
+        <li><strong>F-Ratio:</strong> $$F = \frac{71.4}{3.2} = 22.31 \quad (p < 0.001)$$</li>
+      </ul>
+      <p><strong>Conclusion:</strong> $F = 22.31$ significantly exceeds the critical value $F_{0.05, 2, 12} = 3.89$. We reject $H_0$ and conclude that fertilizer type significantly alters cassava yield ($p < 0.001$). Post-hoc Tukey testing is conducted next to establish the top-performing formulation.</p>
+    </div>
+
+    <!-- Knowledge Self-Check Box -->
+    <div class="challenge-box" style="margin-top: 32px;">
+      <h3>💡 Knowledge Check</h3>
+      <p><strong>Question:</strong> An agricultural field slopes downward across a research site, causing moisture to accumulate at the bottom plots. What experimental design should be implemented, and why would using a Completely Randomized Design (CRD) be problematic?</p>
+
+      <button class="button primary-button" data-toggle="answer" data-target="m11-answer">Show Solution</button>
+
+      <div id="m11-answer" class="hidden-answer">
+        <p><strong>Answer:</strong> A <strong>Randomized Complete Block Design (RCBD)</strong> must be used, with blocks arranged perpendicular to the moisture gradient. Using a CRD would allow moisture variability to inflate the experimental residual error term ($MS_{\text{Within}}$), drastically reducing statistical power and masking true treatment differences.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
+    <p>Department of Biological Sciences & Agricultural Studies</p>
+    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

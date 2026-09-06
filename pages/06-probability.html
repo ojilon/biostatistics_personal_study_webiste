@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 06: Probability & Probability Distributions | BISC 1254</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/visualizations.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-content">
+      <div>
+        <p class="course-code">BISC 1254 | Module 06</p>
+        <h1>Probability & Probability Distributions</h1>
+        <p class="subtitle">Applying biological probability rules, discrete models (Binomial, Poisson), and continuous Normal distributions to research sampling.</p>
+      </div>
+      <div class="header-badge">
+        <span>UNIT 3</span>
+        <small>Inferential Biostatistics</small>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="../index.html">&larr; Home</a>
+      <a href="01-intro-data.html">01. Data & Variables</a>
+      <a href="02-sampling-methods.html">02. Sampling</a>
+      <a href="03-frequency-distributions.html">03. Distributions</a>
+      <a href="04-central-tendency.html">04. Central Tendency</a>
+      <a href="05-measures-dispersion.html">05. Dispersion</a>
+      <a href="06-probability.html" class="active">06. Probability</a>
+      <a href="07-hypothesis-testing.html">07. Hypothesis Testing</a>
+      <a href="08-correlation-regression.html">08. Regression</a>
+      <a href="09-parametric-nonparametric.html">09. Test Selection</a>
+      <a href="10-excel-spss-guide.html">10. Software Guide</a>
+      <a href="11-experimental-design.html">11. ANOVA & Design</a>
+      <a href="12-data-collection.html">12. Field Collection</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Core Theoretical Concept -->
+    <section class="hero">
+      <div>
+        <p class="section-label">Core Theory</p>
+        <h2>Probability in Biological Systems</h2>
+        <p>Biological events involve natural variability and uncertainty. <strong>Probability ($P$)</strong> quantifies the likelihood of a specific outcome occurring, expressed as a real number between $0$ (impossible event) and $1$ (certain event). Probability distributions provide the mathematical foundation for inferential statistics and hypothesis testing.</p>
+      </div>
+      <div class="significance-box" style="margin: 0;">
+        <h3>📌 Fundamental Axioms & Rules</h3>
+        <p><strong>Addition Rule (Mutually Exclusive Events):</strong></p>
+        <p>$$P(A \text{ or } B) = P(A) + P(B)$$</p>
+        <p><strong>Multiplication Rule (Independent Events):</strong></p>
+        <p>$$P(A \text{ and } B) = P(A) \cdot P(B)$$</p>
+      </div>
+    </section>
+
+    <!-- Biological Probability Distributions Matrix Table -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Distribution Models</p>
+      <h2>Key Biostatistical Probability Distributions</h2>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Distribution Model</th>
+              <th>Data Type</th>
+              <th>Parameters</th>
+              <th>Probability Mass / Density Function</th>
+              <th>Agricultural Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Binomial Distribution</strong></td>
+              <td>Discrete (Binary outcomes)</td>
+              <td>$n$ (trials), $p$ (success prob)</td>
+              <td>$$P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}$$</td>
+              <td>Probability that $k$ out of $n=20$ beans germinate under drought stress.</td>
+            </tr>
+            <tr>
+              <td><strong>Poisson Distribution</strong></td>
+              <td>Discrete (Rare events / area)</td>
+              <td>$\lambda$ (mean rate)</td>
+              <td>$$P(X = k) = \frac{\lambda^k \cdot e^{-\lambda}}{k!}$$</td>
+              <td>Number of fall armyworm egg masses counted per square meter of maize field.</td>
+            </tr>
+            <tr>
+              <td><strong>Normal Distribution</strong></td>
+              <td>Continuous</td>
+              <td>$\mu$ (mean), $\sigma$ (std dev)</td>
+              <td>$$f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^2}$$</td>
+              <td>Modeling natural variation in cattle birth weight or crop canopy height.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Standard Normal Distribution & Empirical Rule -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Continuous Models</p>
+      <h2>The Standard Normal Distribution ($Z$) & Empirical Rule</h2>
+      <p>Any normally distributed continuous variable $X \sim N(\mu, \sigma^2)$ can be transformed into the standard normal distribution $Z \sim N(0, 1)$ using the standard score transformation formula:</p>
+      <p>$$Z = \frac{X - \mu}{\sigma}$$</p>
+
+      <div class="module-grid" style="margin-top: 20px;">
+        <div class="module-card">
+          <div class="module-number">68%</div>
+          <h3>$$\mu \pm 1\sigma$$</h3>
+          <p>Approximately <strong>68.27%</strong> of all observations fall within 1 standard deviation of the population mean.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">95%</div>
+          <h3>$$\mu \pm 1.96\sigma$$</h3>
+          <p>Exactly <strong>95.00%</strong> of observations fall within $1.96$ standard deviations ($\approx 2\sigma$) of the mean.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">99.7%</div>
+          <h3>$$\mu \pm 3\sigma$$</h3>
+          <p>Approximately <strong>99.73%</strong> of observations fall within 3 standard deviations of the mean.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field Practical Box -->
+    <div class="practical-box">
+      <h3>🥚 Field Practical Exercise: Egg Weight Probability Calculation</h3>
+      <p>In a commercial flock, egg weights follow a normal distribution with mean $\mu = 60.0\text{ g}$ and standard deviation $\sigma = 2.5\text{ g}$. What is the probability that a randomly chosen egg weighs more than $65.0\text{ g}$?</p>
+      <ul>
+        <li><strong>Step 1 (Calculate Z-score):</strong> $$Z = \frac{65.0 - 60.0}{2.5} = \frac{5.0}{2.5} = 2.00$$</li>
+        <li><strong>Step 2 (Consult Standard Normal Table):</strong> $P(Z < 2.00) = 0.9772$</li>
+        <li><strong>Step 3 (Calculate Upper Tail Probability):</strong> $$P(X > 65.0) = 1 - P(Z < 2.00) = 1 - 0.9772 = 0.0228 \text{ (or } 2.28\%)$$</li>
+      </ul>
+      <p><strong>Conclusion:</strong> Only <strong>2.28%</strong> of eggs produced by this flock will exceed $65.0\text{ grams}$.</p>
+    </div>
+
+    <!-- Knowledge Self-Check Box -->
+    <div class="challenge-box" style="margin-top: 32px;">
+      <h3>💡 Knowledge Check</h3>
+      <p><strong>Question:</strong> An agricultural field officer observes that parasitic ticks occur randomly on cattle in a paddock at an average rate of $\lambda = 2.0$ ticks per animal. Which probability distribution should be used to calculate the probability of finding 0 ticks on a randomly inspected cow?</p>
+
+      <button class="button primary-button" data-toggle="answer" data-target="m6-answer">Show Solution</button>
+
+      <div id="m6-answer" class="hidden-answer">
+        <p><strong>Answer:</strong> The <strong>Poisson Distribution</strong> must be used because the data consists of rare, discrete count events occurring within a fixed sample unit (one cow). Using the formula $P(X = 0) = \frac{2.0^0 \cdot e^{-2.0}}{0!} = 1 \cdot e^{-2.0} \approx 0.1353$, there is a <strong>13.53% chance</strong> of finding 0 ticks on a cow.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
+    <p>Department of Biological Sciences & Agricultural Studies</p>
+    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

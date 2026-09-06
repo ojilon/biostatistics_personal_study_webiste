@@ -1,0 +1,66 @@
+{
+  "datasetInfo": {
+    "title": "Biofortified Common Bean Yield Trial",
+    "courseCode": "BISC 1254",
+    "unit": "Grain Yield (kg/ha)",
+    "location": "Nakasongola Agricultural Research Station, Uganda",
+    "description": "Comparative field trial evaluating grain yields across control, compost manure, and Rhizobium bio-inoculant soil treatments."
+  },
+  "summaryStatistics": {
+    "control": {
+      "sampleSize": 10,
+      "mean": 1120.5,
+      "stdDev": 142.3,
+      "min": 920,
+      "max": 1340
+    },
+    "compostManure": {
+      "sampleSize": 10,
+      "mean": 1485.0,
+      "stdDev": 168.2,
+      "min": 1210,
+      "max": 1750
+    },
+    "rhizobiumInoculant": {
+      "sampleSize": 10,
+      "mean": 1820.0,
+      "stdDev": 195.4,
+      "min": 1510,
+      "max": 2100
+    }
+  },
+  "records": [
+    { "id": 1, "plotId": "PLT-01", "treatment": "Control", "block": "Block 1", "yieldKgHa": 920, "noduleCount": 12 },
+    { "id": 2, "plotId": "PLT-02", "treatment": "Control", "block": "Block 2", "yieldKgHa": 1050, "noduleCount": 15 },
+    { "id": 3, "plotId": "PLT-03", "treatment": "Control", "block": "Block 3", "yieldKgHa": 1140, "noduleCount": 11 },
+    { "id": 4, "plotId": "PLT-04", "treatment": "Control", "block": "Block 4", "yieldKgHa": 1180, "noduleCount": 18 },
+    { "id": 5, "plotId": "PLT-05", "treatment": "Control", "block": "Block 5", "yieldKgHa": 1210, "noduleCount": 14 },
+    { "id": 6, "plotId": "PLT-06", "treatment": "Control", "block": "Block 1", "yieldKgHa": 980, "noduleCount": 10 },
+    { "id": 7, "plotId": "PLT-07", "treatment": "Control", "block": "Block 2", "yieldKgHa": 1100, "noduleCount": 16 },
+    { "id": 8, "plotId": "PLT-08", "treatment": "Control", "block": "Block 3", "yieldKgHa": 1160, "noduleCount": 13 },
+    { "id": 9, "plotId": "PLT-09", "treatment": "Control", "block": "Block 4", "yieldKgHa": 1225, "noduleCount": 17 },
+    { "id": 10, "plotId": "PLT-10", "treatment": "Control", "block": "Block 5", "yieldKgHa": 1340, "noduleCount": 19 },
+
+    { "id": 11, "plotId": "PLT-11", "treatment": "Compost Manure", "block": "Block 1", "yieldKgHa": 1210, "noduleCount": 28 },
+    { "id": 12, "plotId": "PLT-12", "treatment": "Compost Manure", "block": "Block 2", "yieldKgHa": 1350, "noduleCount": 32 },
+    { "id": 13, "plotId": "PLT-13", "treatment": "Compost Manure", "block": "Block 3", "yieldKgHa": 1420, "noduleCount": 35 },
+    { "id": 14, "plotId": "PLT-14", "treatment": "Compost Manure", "block": "Block 4", "yieldKgHa": 1510, "noduleCount": 30 },
+    { "id": 15, "plotId": "PLT-15", "treatment": "Compost Manure", "block": "Block 5", "yieldKgHa": 1580, "noduleCount": 38 },
+    { "id": 16, "plotId": "PLT-16", "treatment": "Compost Manure", "block": "Block 1", "yieldKgHa": 1390, "noduleCount": 29 },
+    { "id": 17, "plotId": "PLT-17", "treatment": "Compost Manure", "block": "Block 2", "yieldKgHa": 1460, "noduleCount": 34 },
+    { "id": 18, "plotId": "PLT-18", "treatment": "Compost Manure", "block": "Block 3", "yieldKgHa": 1540, "noduleCount": 36 },
+    { "id": 19, "plotId": "PLT-19", "treatment": "Compost Manure", "block": "Block 4", "yieldKgHa": 1640, "noduleCount": 41 },
+    { "id": 20, "plotId": "PLT-20", "treatment": "Compost Manure", "block": "Block 5", "yieldKgHa": 1750, "noduleCount": 44 },
+
+    { "id": 21, "plotId": "PLT-21", "treatment": "Rhizobium Inoculant", "block": "Block 1", "yieldKgHa": 1510, "noduleCount": 62 },
+    { "id": 22, "plotId": "PLT-22", "treatment": "Rhizobium Inoculant", "block": "Block 2", "yieldKgHa": 1680, "noduleCount": 68 },
+    { "id": 23, "plotId": "PLT-23", "treatment": "Rhizobium Inoculant", "block": "Block 3", "yieldKgHa": 1750, "noduleCount": 74 },
+    { "id": 24, "plotId": "PLT-24", "treatment": "Rhizobium Inoculant", "block": "Block 4", "yieldKgHa": 1840, "noduleCount": 79 },
+    { "id": 25, "plotId": "PLT-25", "treatment": "Rhizobium Inoculant", "block": "Block 5", "yieldKgHa": 1920, "noduleCount": 85 },
+    { "id": 26, "plotId": "PLT-26", "treatment": "Rhizobium Inoculant", "block": "Block 1", "yieldKgHa": 1710, "noduleCount": 65 },
+    { "id": 27, "plotId": "PLT-27", "treatment": "Rhizobium Inoculant", "block": "Block 2", "yieldKgHa": 1850, "noduleCount": 72 },
+    { "id": 28, "plotId": "PLT-28", "treatment": "Rhizobium Inoculant", "block": "Block 3", "yieldKgHa": 1900, "noduleCount": 81 },
+    { "id": 29, "plotId": "PLT-29", "treatment": "Rhizobium Inoculant", "block": "Block 4", "yieldKgHa": 1940, "noduleCount": 88 },
+    { "id": 30, "plotId": "PLT-30", "treatment": "Rhizobium Inoculant", "block": "Block 5", "yieldKgHa": 2100, "noduleCount": 94 }
+  ]
+}

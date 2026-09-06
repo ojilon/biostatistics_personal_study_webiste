@@ -1,0 +1,70 @@
+{
+  "datasetInfo": {
+    "title": "Daily Milk Yield Metrics in Dairy Cattle",
+    "courseCode": "BISC 1254",
+    "unit": "Liters per day (L/day)",
+    "location": "Mbarara District Research Station, Uganda",
+    "description": "Field evaluation of milk production across standard grazing vs. high-protein feed supplementation regimes."
+  },
+  "summaryStatistics": {
+    "herdA_Standard": {
+      "sampleSize": 15,
+      "mean": 15.0,
+      "median": 15.0,
+      "mode": 15.0,
+      "variance": 4.14,
+      "stdDev": 2.03,
+      "min": 11.5,
+      "max": 18.5,
+      "q1": 13.5,
+      "q3": 16.5,
+      "iqr": 3.0
+    },
+    "herdB_Supplemented": {
+      "sampleSize": 15,
+      "mean": 18.4,
+      "median": 18.0,
+      "mode": 17.5,
+      "variance": 7.31,
+      "stdDev": 2.70,
+      "min": 14.0,
+      "max": 24.0,
+      "q1": 16.0,
+      "q3": 20.5,
+      "iqr": 4.5
+    }
+  },
+  "records": [
+    { "id": 1, "herd": "Herd A", "cowId": "MBR-01", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 12.0 },
+    { "id": 2, "herd": "Herd A", "cowId": "MBR-02", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 14.0 },
+    { "id": 3, "herd": "Herd A", "cowId": "MBR-03", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 15.0 },
+    { "id": 4, "herd": "Herd A", "cowId": "MBR-04", "breed": "Friesian Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 16.0 },
+    { "id": 5, "herd": "Herd A", "cowId": "MBR-05", "breed": "Friesian Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 18.0 },
+    { "id": 6, "herd": "Herd A", "cowId": "MBR-06", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 11.5 },
+    { "id": 7, "herd": "Herd A", "cowId": "MBR-07", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 13.0 },
+    { "id": 8, "herd": "Herd A", "cowId": "MBR-08", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 15.0 },
+    { "id": 9, "herd": "Herd A", "cowId": "MBR-09", "breed": "Friesian Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 15.0 },
+    { "id": 10, "herd": "Herd A", "cowId": "MBR-10", "breed": "Friesian Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 17.0 },
+    { "id": 11, "herd": "Herd A", "cowId": "MBR-11", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 13.5 },
+    { "id": 12, "herd": "Herd A", "cowId": "MBR-12", "breed": "Ankole Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 14.5 },
+    { "id": 13, "herd": "Herd A", "cowId": "MBR-13", "breed": "Friesian Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 16.5 },
+    { "id": 14, "herd": "Herd A", "cowId": "MBR-14", "breed": "Friesian Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 15.5 },
+    { "id": 15, "herd": "Herd A", "cowId": "MBR-15", "breed": "Friesian Cross", "feedRegime": "Standard Grazing", "milkYieldLiters": 18.5 },
+
+    { "id": 16, "herd": "Herd B", "cowId": "MBR-16", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 14.0 },
+    { "id": 17, "herd": "Herd B", "cowId": "MBR-17", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 15.5 },
+    { "id": 18, "herd": "Herd B", "cowId": "MBR-18", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 17.5 },
+    { "id": 19, "herd": "Herd B", "cowId": "MBR-19", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 18.0 },
+    { "id": 20, "herd": "Herd B", "cowId": "MBR-20", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 21.0 },
+    { "id": 21, "herd": "Herd B", "cowId": "MBR-21", "breed": "Ankole Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 15.0 },
+    { "id": 22, "herd": "Herd B", "cowId": "MBR-22", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 17.5 },
+    { "id": 23, "herd": "Herd B", "cowId": "MBR-23", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 18.5 },
+    { "id": 24, "herd": "Herd B", "cowId": "MBR-24", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 20.0 },
+    { "id": 25, "herd": "Herd B", "cowId": "MBR-25", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 24.0 },
+    { "id": 26, "herd": "Herd B", "cowId": "MBR-26", "breed": "Ankole Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 16.0 },
+    { "id": 27, "herd": "Herd B", "cowId": "MBR-27", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 17.0 },
+    { "id": 28, "herd": "Herd B", "cowId": "MBR-28", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 19.0 },
+    { "id": 29, "herd": "Herd B", "cowId": "MBR-29", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 21.0 },
+    { "id": 30, "herd": "Herd B", "cowId": "MBR-30", "breed": "Friesian Cross", "feedRegime": "Protein Supplemented", "milkYieldLiters": 22.0 }
+  ]
+}

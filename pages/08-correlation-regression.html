@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 08: Correlation & Simple Linear Regression | BISC 1254</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/visualizations.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-content">
+      <div>
+        <p class="course-code">BISC 1254 | Module 08</p>
+        <h1>Correlation & Simple Linear Regression</h1>
+        <p class="subtitle">Quantifying association strength, modeling functional bivariate relationships, and predicting biological responses.</p>
+      </div>
+      <div class="header-badge">
+        <span>UNIT 3</span>
+        <small>Inferential Biostatistics</small>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="../index.html">&larr; Home</a>
+      <a href="01-intro-data.html">01. Data & Variables</a>
+      <a href="02-sampling-methods.html">02. Sampling</a>
+      <a href="03-frequency-distributions.html">03. Distributions</a>
+      <a href="04-central-tendency.html">04. Central Tendency</a>
+      <a href="05-measures-dispersion.html">05. Dispersion</a>
+      <a href="06-probability.html">06. Probability</a>
+      <a href="07-hypothesis-testing.html">07. Hypothesis Testing</a>
+      <a href="08-correlation-regression.html" class="active">08. Regression</a>
+      <a href="09-parametric-nonparametric.html">09. Test Selection</a>
+      <a href="10-excel-spss-guide.html">10. Software Guide</a>
+      <a href="11-experimental-design.html">11. ANOVA & Design</a>
+      <a href="12-data-collection.html">12. Field Collection</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Core Theoretical Concept -->
+    <section class="hero">
+      <div>
+        <p class="section-label">Core Theory</p>
+        <h2>Modeling Biological Relationships</h2>
+        <p>In biological systems, variables rarely act in isolation. <strong>Correlation</strong> evaluates the strength and direction of a linear association between two continuous variables. <strong>Simple Linear Regression</strong> models the mathematical functional relationship, enabling prediction of a dependent response variable ($Y$) from an independent predictor ($X$).</p>
+      </div>
+      <div class="significance-box" style="margin: 0;">
+        <h3>📌 Regression & Correlation Equations</h3>
+        <p><strong>Pearson Correlation Coefficient ($r$):</strong></p>
+        <p>$$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$$</p>
+        <p><strong>Linear Regression Model:</strong></p>
+        <p>$$\hat{Y} = \beta_0 + \beta_1 X$$</p>
+      </div>
+    </section>
+
+    <!-- Correlation Matrix Table -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Association Analysis</p>
+      <h2>Pearson vs. Spearman Correlation</h2>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Pearson Correlation ($r$)</th>
+              <th>Spearman Rank Correlation ($\rho$)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Data Type Requirement</strong></td>
+              <td>Continuous (Interval or Ratio) scale</td>
+              <td>Ordinal or non-normally distributed Continuous scale</td>
+            </tr>
+            <tr>
+              <td><strong>Relationship Evaluated</strong></td>
+              <td>Linear relationship</td>
+              <td>Monotonic relationship (general trend)</td>
+            </tr>
+            <tr>
+              <td><strong>Assumptions</strong></td>
+              <td>Bivariate normality, homoscedasticity, no extreme outliers</td>
+              <td>Non-parametric (no normality assumption required)</td>
+            </tr>
+            <tr>
+              <td><strong>Value Range</strong></td>
+              <td>$-1.0 \le r \le +1.0$</td>
+              <td>$-1.0 \le \rho \le +1.0$</td>
+            </tr>
+            <tr>
+              <td><strong>Biological Application</strong></td>
+              <td>Correlating temperature vs plant transpiration rate</td>
+              <td>Correlating disease severity grade vs soil quality rank</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Linear Regression Anatomy -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Predictive Modeling</p>
+      <h2>Simple Linear Regression Anatomy</h2>
+
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-number">1</div>
+          <h3>Slope ($\beta_1$)</h3>
+          <p>Represents the expected change in response variable $Y$ per unit increase in predictor variable $X$.</p>
+          <p>$$\beta_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}$$</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">2</div>
+          <h3>Intercept ($\beta_0$)</h3>
+          <p>Represents the predicted baseline value of $Y$ when the predictor variable $X = 0$.</p>
+          <p>$$\beta_0 = \bar{Y} - \beta_1 \bar{X}$$</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">3</div>
+          <h3>Goodness of Fit ($R^2$)</h3>
+          <p>The <strong>Coefficient of Determination ($R^2$)</strong> quantifies the proportion of total variation in $Y$ explained by $X$.</p>
+          <p>$$R^2 = (r)^2 \quad (0 \le R^2 \le 1.0)$$</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field Practical Box -->
+    <div class="practical-box">
+      <h3>🌽 Field Practical Case Study: Fertilizer vs. Maize Yield</h3>
+      <p>An agronomist at Namulonge evaluates the impact of nitrogen fertilizer application ($X$, kg/ha) on maize grain yield ($Y$, t/ha):</p>
+      <ul>
+        <li><strong>Fitted Regression Equation:</strong> $$\hat{Y} = 2.15 + 0.038 X$$</li>
+        <li><strong>Correlation Coefficient:</strong> $r = 0.89$ ($p < 0.001$)</li>
+        <li><strong>Coefficient of Determination:</strong> $R^2 = (0.89)^2 = 0.792 \text{ (or } 79.2\%)$</li>
+      </ul>
+      <p><strong>Interpretation:</strong> Baseline unfertilized yield is $2.15\text{ t/ha}$. Each additional $1\text{ kg/ha}$ of nitrogen increases grain yield by $0.038\text{ t/ha}$. Nitrogen application explains <strong>79.2%</strong> of the variance in maize yield.</p>
+    </div>
+
+    <!-- Knowledge Self-Check Box -->
+    <div class="challenge-box" style="margin-top: 32px;">
+      <h3>💡 Knowledge Check</h3>
+      <p><strong>Question:</strong> A researcher calculates a Pearson correlation coefficient of $r = -0.84$ between tick count per animal and daily weight gain (grams). What does this negative coefficient mean, and does it prove that ticks cause weight loss?</p>
+
+      <button class="button primary-button" data-toggle="answer" data-target="m8-answer">Show Solution</button>
+
+      <div id="m8-answer" class="hidden-answer">
+        <p><strong>Answer:</strong> The value $r = -0.84$ indicates a <strong>strong inverse linear relationship</strong>: as tick count increases, daily weight gain significantly decreases. However, correlation does <em>not</em> imply causation; confounding factors like poor nutrition or underlying disease could simultaneously increase tick susceptibility and decrease weight gain.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
+    <p>Department of Biological Sciences & Agricultural Studies</p>
+    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

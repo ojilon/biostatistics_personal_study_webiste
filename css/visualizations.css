@@ -1,0 +1,209 @@
+/* ------------------------------------------------------------------
+   BISC 1254 Biostatistics & Research Methods
+   Visualization & Interactive Simulation Component Styles
+------------------------------------------------------------------ */
+
+/* Simulation Container & Layout */
+
+.sim-card {
+  margin: 28px 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.sim-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--green-light);
+}
+
+.sim-header h3 {
+  margin: 0;
+  color: var(--green-dark);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Controls Panel */
+
+.sim-controls {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--background);
+  border: 1px solid var(--border);
+}
+
+.control-group {
+  margin-bottom: 18px;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.control-group label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.control-group label .value-display {
+  color: var(--green);
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #cbd5e1;
+  outline: none;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+.control-group select,
+.control-group input[type="number"],
+.control-group input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.control-group select:focus,
+.control-group input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, 0.15);
+}
+
+/* Visualization Display & Canvas Area */
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  max-height: 480px;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Real-Time Calculation Metrics Cards */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.metric-card {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--green-light);
+  border: 1px solid #bce2cb;
+  text-align: center;
+}
+
+.metric-card.gold {
+  background: var(--gold-light);
+  border-color: #ead49e;
+}
+
+.metric-card.alert {
+  background: #fed7d7;
+  border-color: #feb2b2;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--green-dark);
+  font-family: monospace;
+}
+
+.metric-card.gold .metric-value {
+  color: #744210;
+}
+
+.metric-card.alert .metric-value {
+  color: var(--accent-red);
+}
+
+/* Statistical Significance Outcome Banners */
+
+.status-banner {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-banner.sig {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.status-banner.not-sig {
+  background: #feefc3;
+  color: #744210;
+  border: 1px solid #fde68a;
+}
+
+/* Responsive adjustments for tools */
+
+@media (max-width: 900px) {
+  .sim-grid {
+    grid-template-columns: 1fr;
+  }
+}

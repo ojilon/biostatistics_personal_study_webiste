@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 10: Statistical Software Guide (Excel & SPSS) | BISC 1254</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/visualizations.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-content">
+      <div>
+        <p class="course-code">BISC 1254 | Module 10</p>
+        <h1>Biostatistical Software Guide: Excel & SPSS</h1>
+        <p class="subtitle">Executing data cleaning, descriptive summaries, hypothesis tests, regression, and ANOVA using standard computing tools.</p>
+      </div>
+      <div class="header-badge">
+        <span>UNIT 4</span>
+        <small>Software & Data Analysis</small>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="../index.html">&larr; Home</a>
+      <a href="01-intro-data.html">01. Data & Variables</a>
+      <a href="02-sampling-methods.html">02. Sampling</a>
+      <a href="03-frequency-distributions.html">03. Distributions</a>
+      <a href="04-central-tendency.html">04. Central Tendency</a>
+      <a href="05-measures-dispersion.html">05. Dispersion</a>
+      <a href="06-probability.html">06. Probability</a>
+      <a href="07-hypothesis-testing.html">07. Hypothesis Testing</a>
+      <a href="08-correlation-regression.html">08. Regression</a>
+      <a href="09-parametric-nonparametric.html">09. Test Selection</a>
+      <a href="10-excel-spss-guide.html" class="active">10. Software Guide</a>
+      <a href="11-experimental-design.html">11. ANOVA & Design</a>
+      <a href="12-data-collection.html">12. Field Collection</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Core Theoretical Concept -->
+    <section class="hero">
+      <div>
+        <p class="section-label">Core Theory</p>
+        <h2>Computational Biostatistics</h2>
+        <p>Modern biostatistical analysis relies on software platforms to compute complex mathematical models efficiently. While <strong>Microsoft Excel</strong> provides accessible options for field data logging and baseline summaries, <strong>IBM SPSS Statistics</strong> offers a dedicated environment for assumption testing, non-parametric analysis, and multifactor ANOVA.</p>
+      </div>
+      <div class="significance-box" style="margin: 0;">
+        <h3>📌 Tidy Data Structuring Rule</h3>
+        <p>1. Each variable forms a single <strong>column</strong>.</p>
+        <p>2. Each biological observation forms a single <strong>row</strong>.</p>
+        <p>3. Each cell contains a single <strong>measurement value</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Excel vs SPSS Capability Matrix -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Platform Comparison</p>
+      <h2>Microsoft Excel vs. IBM SPSS Statistics</h2>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature / Analytical Procedure</th>
+              <th>Microsoft Excel (with ToolPak)</th>
+              <th>IBM SPSS Statistics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Data Architecture</strong></td>
+              <td>Cell-based spreadsheet grid</td>
+              <td>Dual view: Data View & Variable View</td>
+            </tr>
+            <tr>
+              <td><strong>Descriptive Statistics</strong></td>
+              <td><code>Data Analysis ToolPak &rarr; Descriptive Statistics</code></td>
+              <td><code>Analyze &rarr; Descriptive Statistics &rarr; Explore</code></td>
+            </tr>
+            <tr>
+              <td><strong>Normality Testing</strong></td>
+              <td>Manual skewness/kurtosis calculation or charts</td>
+              <td>Automated Shapiro-Wilk & Kolmogorov-Smirnov tests</td>
+            </tr>
+            <tr>
+              <td><strong>Hypothesis Tests ($t$-tests)</strong></td>
+              <td>One-sample, paired, and 2-sample equal/unequal variance</td>
+              <td>Full $t$-test suite with automated Levene's test</td>
+            </tr>
+            <tr>
+              <td><strong>Non-Parametric Tests</strong></td>
+              <td>Requires manual formula setup or custom macros</td>
+              <td>Built-in Mann-Whitney, Wilcoxon, and Kruskal-Wallis tests</td>
+            </tr>
+            <tr>
+              <td><strong>Analysis of Variance (ANOVA)</strong></td>
+              <td>Single Factor, Two-Factor with/without Replication</td>
+              <td>GLM Univariate with full post-hoc (Tukey, LSD) options</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Workflow Execution Steps -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Step-by-Step Execution</p>
+      <h2>Common Analytical Workflows</h2>
+
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-number">1</div>
+          <h3>Excel: Enabling ToolPak</h3>
+          <p>Navigate to <code>File &rarr; Options &rarr; Add-Ins</code>. Under Manage, select <strong>Excel Add-ins</strong>, click <strong>Go</strong>, check <strong>Analysis ToolPak</strong>, and press OK. The Data Analysis tool will appear under the <code>Data</code> tab.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">2</div>
+          <h3>SPSS: Setting Variable Types</h3>
+          <p>In Variable View, define variable names, set <strong>Measure</strong> to <em>Scale</em> (numeric continuous), <em>Ordinal</em> (ranked ratings), or <em>Nominal</em> (categories), and assign <strong>Value Labels</strong> for treatment codes.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">3</div>
+          <h3>SPSS: Running Independent t-Test</h3>
+          <p>Select <code>Analyze &rarr; Compare Means &rarr; Independent-Samples T Test</code>. Move the measurement metric to <strong>Test Variable(s)</strong> and treatment category to <strong>Grouping Variable</strong>. Define group codes and run.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field Practical Box -->
+    <div class="practical-box">
+      <h3>💻 Practical Case Study: Interpreting SPSS Independent t-Test Output</h3>
+      <p>A trial evaluated cattle daily weight gain (kg) under two feed regimes (Feed A vs Feed B):</p>
+      <ul>
+        <li><strong>Levene's Test for Equality of Variances:</strong> $F = 0.842$, $p = 0.364$. Since $p > 0.05$, equal variances are assumed.</li>
+        <li><strong>t-Test Output (Equal Variances Assumed):</strong> $t = 3.142$, $df = 28$, $p = 0.004$.</li>
+        <li><strong>Mean Difference:</strong> Feed B increased daily gain by $0.24\text{ kg/day}$ ($95\%\text{ CI: } [0.08, 0.40]$).</li>
+      </ul>
+      <p><strong>Conclusion:</strong> Reject $H_0$ ($p = 0.004 < 0.05$). Animals on Feed B gained significantly more weight than those on Feed A.</p>
+    </div>
+
+    <!-- Knowledge Self-Check Box -->
+    <div class="challenge-box" style="margin-top: 32px;">
+      <h3>💡 Knowledge Check</h3>
+      <p><strong>Question:</strong> When reading an SPSS Independent Samples $t$-test output table, Levene's Test reports Sig. ($p$-value) $= 0.012$. Which row of $t$-test output should you report, and why?</p>
+
+      <button class="button primary-button" data-toggle="answer" data-target="m10-answer">Show Solution</button>
+
+      <div id="m10-answer" class="hidden-answer">
+        <p><strong>Answer:</strong> You must read and report the bottom row labelled <strong>"Equal variances not assumed"</strong> (Welch's $t$-test). Because Levene's test is significant ($p = 0.012 < 0.05$), the assumption of equal population variances is violated, making standard pooled $t$-tests invalid.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
+    <p>Department of Biological Sciences & Agricultural Studies</p>
+    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

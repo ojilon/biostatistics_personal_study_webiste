@@ -1,0 +1,44 @@
+{
+  "datasetInfo": {
+    "title": "CO2 Concentration vs. Photosynthetic Assimilation Rate",
+    "courseCode": "BISC 1254",
+    "xUnit": "Ambient CO2 Concentration (ppm)",
+    "yUnit": "Net Photosynthetic Rate (µmol CO2 / m² / s)",
+    "location": "National Coffee Research Institute (NaCORI), Mukono, Uganda",
+    "description": "Gas exchange response curve evaluating photosynthetic efficiency of Coffee arabica leaves across controlled CO2 concentrations."
+  },
+  "summaryStatistics": {
+    "sampleSize": 20,
+    "meanCo2Ppm": 525.0,
+    "meanPhotosynthesisRate": 16.34,
+    "correlationCoefficientR": 0.968,
+    "rSquared": 0.937,
+    "linearRegressionModel": {
+      "slope": 0.0248,
+      "intercept": 3.32,
+      "equation": "Y = 3.32 + 0.0248 * X"
+    }
+  },
+  "records": [
+    { "id": 1, "leafId": "CAF-01", "co2Ppm": 100, "photosyntheticRate": 5.2, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 2, "leafId": "CAF-02", "co2Ppm": 150, "photosyntheticRate": 6.8, "chamberTempC": 25.1, "parLpar": 1200 },
+    { "id": 3, "leafId": "CAF-03", "co2Ppm": 200, "photosyntheticRate": 8.4, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 4, "leafId": "CAF-04", "co2Ppm": 250, "photosyntheticRate": 9.7, "chamberTempC": 24.9, "parLpar": 1200 },
+    { "id": 5, "leafId": "CAF-05", "co2Ppm": 300, "photosyntheticRate": 11.1, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 6, "leafId": "CAF-06", "co2Ppm": 350, "photosyntheticRate": 12.3, "chamberTempC": 25.2, "parLpar": 1200 },
+    { "id": 7, "leafId": "CAF-07", "co2Ppm": 400, "photosyntheticRate": 13.6, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 8, "leafId": "CAF-08", "co2Ppm": 450, "photosyntheticRate": 14.8, "chamberTempC": 25.1, "parLpar": 1200 },
+    { "id": 9, "leafId": "CAF-09", "co2Ppm": 500, "photosyntheticRate": 15.9, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 10, "leafId": "CAF-10", "co2Ppm": 550, "photosyntheticRate": 17.1, "chamberTempC": 24.8, "parLpar": 1200 },
+    { "id": 11, "leafId": "CAF-11", "co2Ppm": 600, "photosyntheticRate": 18.2, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 12, "leafId": "CAF-12", "co2Ppm": 650, "photosyntheticRate": 19.3, "chamberTempC": 25.1, "parLpar": 1200 },
+    { "id": 13, "leafId": "CAF-13", "co2Ppm": 700, "photosyntheticRate": 20.1, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 14, "leafId": "CAF-14", "co2Ppm": 750, "photosyntheticRate": 21.0, "chamberTempC": 24.9, "parLpar": 1200 },
+    { "id": 15, "leafId": "CAF-15", "co2Ppm": 800, "photosyntheticRate": 21.8, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 16, "leafId": "CAF-16", "co2Ppm": 850, "photosyntheticRate": 22.4, "chamberTempC": 25.2, "parLpar": 1200 },
+    { "id": 17, "leafId": "CAF-17", "co2Ppm": 900, "photosyntheticRate": 22.9, "chamberTempC": 25.1, "parLpar": 1200 },
+    { "id": 18, "leafId": "CAF-18", "co2Ppm": 950, "photosyntheticRate": 23.3, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 19, "leafId": "CAF-19", "co2Ppm": 1000, "photosyntheticRate": 23.6, "chamberTempC": 25.0, "parLpar": 1200 },
+    { "id": 20, "leafId": "CAF-20", "co2Ppm": 1050, "photosyntheticRate": 23.8, "chamberTempC": 24.9, "parLpar": 1200 }
+  ]
+}

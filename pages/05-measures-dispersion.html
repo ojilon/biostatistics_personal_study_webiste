@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 05: Measures of Dispersion & Variability | BISC 1254</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/visualizations.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-content">
+      <div>
+        <p class="course-code">BISC 1254 | Module 05</p>
+        <h1>Measures of Dispersion & Biological Variability</h1>
+        <p class="subtitle">Quantifying population spread, sample variance, standard deviation, and relative variability across biological systems.</p>
+      </div>
+      <div class="header-badge">
+        <span>UNIT 2</span>
+        <small>Descriptive Biostatistics</small>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="../index.html">&larr; Home</a>
+      <a href="01-intro-data.html">01. Data & Variables</a>
+      <a href="02-sampling-methods.html">02. Sampling</a>
+      <a href="03-frequency-distributions.html">03. Distributions</a>
+      <a href="04-central-tendency.html">04. Central Tendency</a>
+      <a href="05-measures-dispersion.html" class="active">05. Dispersion</a>
+      <a href="06-probability.html">06. Probability</a>
+      <a href="07-hypothesis-testing.html">07. Hypothesis Testing</a>
+      <a href="08-correlation-regression.html">08. Regression</a>
+      <a href="09-parametric-nonparametric.html">09. Test Selection</a>
+      <a href="10-excel-spss-guide.html">10. Software Guide</a>
+      <a href="11-experimental-design.html">11. ANOVA & Design</a>
+      <a href="12-data-collection.html">12. Field Collection</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Core Theoretical Concept -->
+    <section class="hero">
+      <div>
+        <p class="section-label">Core Theory</p>
+        <h2>Why Measure Dispersion?</h2>
+        <p>Central tendency alone fails to describe a biological population. Two cattle herds may share an identical mean milk yield of $15.0\text{ L/day}$, yet one herd may range tightly between $14\text{ L}$ and $16\text{ L}$, while another varies wildly from $5\text{ L}$ to $25\text{ L}$. <strong>Dispersion metrics</strong> measure the degree of scatter or variability around the center.</p>
+      </div>
+      <div class="significance-box" style="margin: 0;">
+        <h3>📌 Sample Variance & Standard Deviation</h3>
+        <p><strong>Sample Variance ($s^2$):</strong></p>
+        <p>$$s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}$$</p>
+        <p><strong>Sample Standard Deviation ($s$):</strong></p>
+        <p>$$s = \sqrt{s^2}$$</p>
+      </div>
+    </section>
+
+    <!-- Dispersion Metrics Comparison Matrix -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Metric Matrix</p>
+      <h2>Measures of Dispersion Compared</h2>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Formula / Calculation</th>
+              <th>Units</th>
+              <th>Sensitivity to Outliers</th>
+              <th>Primary Biological Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Range</strong></td>
+              <td>$$\text{Max} - \text{Min}$$</td>
+              <td>Original units</td>
+              <td><strong>Extremely High</strong></td>
+              <td>Quick rough estimate of spread in field surveys.</td>
+            </tr>
+            <tr>
+              <td><strong>Interquartile Range (IQR)</strong></td>
+              <td>$$Q_3 - Q_1$$</td>
+              <td>Original units</td>
+              <td><strong>Robust</strong> (Insensitive)</td>
+              <td>Summarizing skewed biological traits alongside the Median.</td>
+            </tr>
+            <tr>
+              <td><strong>Sample Variance ($s^2$)</strong></td>
+              <td>$$\frac{\sum (x_i - \bar{x})^2}{n - 1}$$</td>
+              <td>Squared units ($\text{unit}^2$)</td>
+              <td><strong>High</strong></td>
+              <td>Intermediate calculation for ANOVA and hypothesis tests.</td>
+            </tr>
+            <tr>
+              <td><strong>Standard Deviation ($s$)</strong></td>
+              <td>$$\sqrt{s^2}$$</td>
+              <td>Original units</td>
+              <td><strong>High</strong></td>
+              <td>Standard reporting metric for normally distributed data.</td>
+            </tr>
+            <tr>
+              <td><strong>Coefficient of Variation ($CV\%$)</strong></td>
+              <td>$$\left(\frac{s}{\bar{x}}\right) \times 100\%$$</td>
+              <td>Percentage ($\%$)</td>
+              <td><strong>Moderate</strong></td>
+              <td>Comparing relative variability between traits with different measurement units.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Bessel's Correction Deep Dive -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Statistical Theory</p>
+      <h2>Bessel's Correction ($n - 1$) vs. Population Division ($N$)</h2>
+
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-number">1</div>
+          <h3>Population Variance ($\sigma^2$)</h3>
+          <p>Divided by total population size $N$ when measuring every single member of a population:</p>
+          <p>$$\sigma^2 = \frac{\sum (x_i - \mu)^2}{N}$$</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">2</div>
+          <h3>Sample Variance ($s^2$)</h3>
+          <p>Divided by degrees of freedom ($n - 1$) to correct for the underestimation of population variance when sampling:</p>
+          <p>$$s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}$$</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">3</div>
+          <h3>Unbiased Estimator</h3>
+          <p>Because sample observations cluster around the sample mean $\bar{x}$ tighter than the true population mean $\mu$, dividing by $n$ underestimates spread. Using $n-1$ yields an unbiased estimate of $\sigma^2$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field Practical Box -->
+    <div class="practical-box">
+      <h3>🌽 Field Practical Exercise: Coefficient of Variation ($CV\%$)</h3>
+      <p>A researcher compares experimental uniformity across two different agricultural trials in Wakiso:</p>
+      <ul>
+        <li><strong>Trial A (Egg Weights):</strong> $\bar{x} = 60.5\text{ g}$, $s = 2.8\text{ g}$ $\rightarrow$ $CV = \left(\frac{2.8}{60.5}\right) \times 100\% = 4.63\%$</li>
+        <li><strong>Trial B (Maize Yield/Plot):</strong> $\bar{x} = 14.8\text{ kg}$, $s = 2.2\text{ kg}$ $\rightarrow$ $CV = \left(\frac{2.2}{14.8}\right) \times 100\% = 14.86\%$</li>
+      </ul>
+      <p><strong>Conclusion:</strong> Although maize yield has a smaller standard deviation ($2.2$) than egg weight in numeric magnitude, maize yield exhibits over <strong>three times greater relative variability</strong> ($14.86\%$ vs $4.63\%$).</p>
+    </div>
+
+    <!-- Knowledge Self-Check Box -->
+    <div class="challenge-box" style="margin-top: 32px;">
+      <h3>💡 Knowledge Check</h3>
+      <p><strong>Question:</strong> Why can you NOT compare the standard deviation of cattle body weight ($s = 35\text{ kg}$) directly against the standard deviation of serum total protein ($s = 0.8\text{ g/dL}$) to determine which trait is more variable?</p>
+
+      <button class="button primary-button" data-toggle="answer" data-target="m5-answer">Show Solution</button>
+
+      <div id="m5-answer" class="hidden-answer">
+        <p><strong>Answer:</strong> Standard deviations are expressed in original measurement units ($\text{kg}$ vs $\text{g/dL}$) and depend heavily on the scale of measurement. To compare variability between attributes with different units or vastly different means, you must calculate the unitless <strong>Coefficient of Variation ($CV\%$)</strong>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
+    <p>Department of Biological Sciences & Agricultural Studies</p>
+    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

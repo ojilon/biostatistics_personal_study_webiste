@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 04: Measures of Central Tendency | BISC 1254</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/visualizations.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-content">
+      <div>
+        <p class="course-code">BISC 1254 | Module 04</p>
+        <h1>Measures of Central Tendency</h1>
+        <p class="subtitle">Quantifying the center of biological distributions using mean, median, and mode under varying distribution shapes.</p>
+      </div>
+      <div class="header-badge">
+        <span>UNIT 2</span>
+        <small>Descriptive Biostatistics</small>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="../index.html">&larr; Home</a>
+      <a href="01-intro-data.html">01. Data & Variables</a>
+      <a href="02-sampling-methods.html">02. Sampling</a>
+      <a href="03-frequency-distributions.html">03. Distributions</a>
+      <a href="04-central-tendency.html" class="active">04. Central Tendency</a>
+      <a href="05-measures-dispersion.html">05. Dispersion</a>
+      <a href="06-probability.html">06. Probability</a>
+      <a href="07-hypothesis-testing.html">07. Hypothesis Testing</a>
+      <a href="08-correlation-regression.html">08. Regression</a>
+      <a href="09-parametric-nonparametric.html">09. Test Selection</a>
+      <a href="10-excel-spss-guide.html">10. Software Guide</a>
+      <a href="11-experimental-design.html">11. ANOVA & Design</a>
+      <a href="12-data-collection.html">12. Field Collection</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Core Theoretical Concept -->
+    <section class="hero">
+      <div>
+        <p class="section-label">Core Theory</p>
+        <h2>The Center of Biological Data</h2>
+        <p>A <strong>Measure of Central Tendency</strong> is a single value that attempts to describe a set of data by identifying the central position within that data set. Selecting the appropriate metric depends on scale of measurement, presence of outliers, and distribution symmetry.</p>
+      </div>
+      <div class="significance-box" style="margin: 0;">
+        <h3>📌 Mathematical Formulas</h3>
+        <p><strong>Sample Mean ($\bar{x}$):</strong></p>
+        <p>$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$</p>
+        <p><strong>Weighted Mean ($\bar{x}_w$):</strong></p>
+        <p>$$\bar{x}_w = \frac{\sum_{i=1}^{k} (w_i \cdot x_i)}{\sum_{i=1}^{k} w_i}$$</p>
+      </div>
+    </section>
+
+    <!-- Comparison Matrix -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Metric Comparison</p>
+      <h2>Mean vs. Median vs. Mode</h2>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Calculation Method</th>
+              <th>Outlier Sensitivity</th>
+              <th>Measurement Scale</th>
+              <th>Optimal Agricultural Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Arithmetic Mean ($\bar{x}$)</strong></td>
+              <td>Sum of all observations divided by sample size ($n$).</td>
+              <td><strong>High</strong> (Sensitive to extreme values)</td>
+              <td>Interval & Ratio</td>
+              <td>Average daily milk yield across homogeneous dairy herds.</td>
+            </tr>
+            <tr>
+              <td><strong>Median ($M$)</strong></td>
+              <td>Middle observation in a sorted array ($50^{\text{th}}$ percentile).</td>
+              <td><strong>None</strong> (Robust statistic)</td>
+              <td>Ordinal, Interval & Ratio</td>
+              <td>Socioeconomic household income or skewed pathogen infestation levels.</td>
+            </tr>
+            <tr>
+              <td><strong>Mode</strong></td>
+              <td>Most frequently occurring observation(s).</td>
+              <td><strong>None</strong></td>
+              <td>Nominal, Ordinal, Interval & Ratio</td>
+              <td>Most common crop disease rating or modal egg grade category.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Distribution Skewness Grid -->
+    <section style="margin-top: 36px;">
+      <p class="section-label">Distribution Dynamics</p>
+      <h2>Effect of Skewness on Central Metrics</h2>
+
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-number">1</div>
+          <h3>Symmetric (Normal)</h3>
+          <p>Data values are evenly distributed around the center bell curve.</p>
+          <p><strong>Relationship:</strong></p>
+          <p>$$\text{Mean} = \text{Median} = \text{Mode}$$</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">2</div>
+          <h3>Right-Skewed (Positive)</h3>
+          <p>Long tail extends toward higher positive values due to high outliers.</p>
+          <p><strong>Relationship:</strong></p>
+          <p>$$\text{Mean} > \text{Median} > \text{Mode}$$</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-number">3</div>
+          <h3>Left-Skewed (Negative)</h3>
+          <p>Long tail extends toward lower values due to low outliers.</p>
+          <p><strong>Relationship:</strong></p>
+          <p>$$\text{Mean} < \text{Median} < \text{Mode}$$</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outlier Case Study Box -->
+    <div class="practical-box">
+      <h3>🐄 Agricultural Case Study: Milk Yield Outlier Impact</h3>
+      <p>Consider 5 cows in a Mbarara dairy paddock yielding daily milk volumes (liters):</p>
+      <p><strong>Baseline Herd A:</strong> 12, 14, 15, 16, 18 $\rightarrow$ $\bar{x} = 15.0\text{ L}$, $\text{Median} = 15.0\text{ L}$</p>
+      <p><strong>Outlier Herd B (Extreme Producer):</strong> 12, 14, 15, 16, 48 $\rightarrow$ $\bar{x} = 21.0\text{ L}$, $\text{Median} = 15.0\text{ L}$</p>
+      <p>Notice how a single super-producing cow pulls the arithmetic mean up by 40%, whereas the median remains completely unaffected ($15.0\text{ L}$).</p>
+    </div>
+
+    <!-- Knowledge Self-Check Box -->
+    <div class="challenge-box" style="margin-top: 32px;">
+      <h3>💡 Knowledge Check</h3>
+      <p><strong>Question:</strong> A livestock researcher records cassava foliage intake (kg/day) for 9 goats: 1.2, 1.4, 1.5, 1.5, 1.6, 1.8, 2.0, 2.1, 4.5. Which measure of central tendency provides the most representative summary, and why?</p>
+
+      <button class="button primary-button" data-toggle="answer" data-target="m4-answer">Show Solution</button>
+
+      <div id="m4-answer" class="hidden-answer">
+        <p><strong>Answer:</strong> The <strong>Median</strong> ($1.6\text{ kg}$) is most representative. The presence of the extreme outlier ($4.5\text{ kg}$) inflates the arithmetic mean to $1.96\text{ kg}$, which is higher than 7 out of 9 sampled animals. The median reflects the typical intake rate without distortion.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>BISC 1254: Biostatistics & Research Methods</strong></p>
+    <p>Department of Biological Sciences & Agricultural Studies</p>
+    <p><small>&copy; Interactive Biostatistics Study Lab. Designed for Ugandan Higher Education Standards.</small></p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
