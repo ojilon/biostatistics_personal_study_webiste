@@ -23,25 +23,22 @@ function initSamplingSimulator() {
     const cols = 10;
     const totalPlots = rows * cols;
 
-    // Generate synthetic cassava yield field population (kg / plot) with soil fertility gradient
     let population = [];
 
     function generatePopulation() {
         population = [];
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < cols; c++) {
-                // North field (rows 0-4) has higher fertility than South field (rows 5-9)
                 const baseYield = r < 5 ? 18.5 : 11.2;
                 const noise = (Math.random() - 0.5) * 5;
                 const yieldVal = Math.max(2.0, Math.round((baseYield + noise) * 10) / 10);
-                
                 population.push({
                     id: r * cols + c,
                     row: r,
                     col: c,
                     yield: yieldVal,
                     stratum: r < 5 ? 'North Field (High Fertility)' : 'South Field (Low Fertility)',
-                    clusterId: Math.floor((r * cols + c) / 10) // 10 clusters of 10 plots each
+                    clusterId: Math.floor((r * cols + c) / 10)
                 });
             }
         }
@@ -50,8 +47,17 @@ function initSamplingSimulator() {
     generatePopulation();
 
     function drawGrid(selectedIds = []) {
-        const width = gridCanvas.width;
-        const height = gridCanvas.height;
+        const dpr = window.devicePixelRatio || 1;
+        const displayW = gridCanvas.clientWidth || 480;
+        const displayH = Math.round(displayW * 0.75) || 360;
+        gridCanvas.width = displayW * dpr;
+        gridCanvas.height = displayH * dpr;
+        gridCanvas.style.width = displayW + 'px';
+        gridCanvas.style.height = displayH + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const width = displayW;
+        const height = displayH;
         const cellW = width / cols;
         const cellH = height / rows;
 
@@ -62,13 +68,12 @@ function initSamplingSimulator() {
             const y = plot.row * cellH;
             const isSelected = selectedIds.includes(plot.id);
 
-            // Styling based on stratum and selection state
             if (isSelected) {
-                ctx.fillStyle = '#d69e2e'; // Gold highlight for sampled plots
+                ctx.fillStyle = '#d69e2e';
             } else if (plot.row < 5) {
-                ctx.fillStyle = '#dff3e7'; // Light green (North stratum)
+                ctx.fillStyle = '#dff3e7';
             } else {
-                ctx.fillStyle = '#f4f8f5'; // Light gray-green (South stratum)
+                ctx.fillStyle = '#f4f8f5';
             }
 
             ctx.fillRect(x + 2, y + 2, cellW - 4, cellH - 4);
@@ -76,7 +81,6 @@ function initSamplingSimulator() {
             ctx.lineWidth = isSelected ? 2 : 1;
             ctx.strokeRect(x + 2, y + 2, cellW - 4, cellH - 4);
 
-            // Text display of yield value
             ctx.fillStyle = isSelected ? '#ffffff' : '#17251d';
             ctx.font = '10px monospace';
             ctx.textAlign = 'center';
@@ -91,17 +95,14 @@ function initSamplingSimulator() {
         let selectedPlots = [];
 
         if (method === 'srs') {
-            // Simple Random Sampling
             const shuffled = [...population].sort(() => Math.random() - 0.5);
             selectedPlots = shuffled.slice(0, n);
         } else if (method === 'stratified') {
-            // Stratified Random Sampling (Proportional 50/50 split across North/South)
             const north = population.filter(p => p.row < 5).sort(() => Math.random() - 0.5);
             const south = population.filter(p => p.row >= 5).sort(() => Math.random() - 0.5);
             const half = Math.floor(n / 2);
             selectedPlots = [...north.slice(0, half), ...south.slice(0, n - half)];
         } else if (method === 'systematic') {
-            // Systematic Sampling (Interval k = N / n)
             const k = Math.max(1, Math.floor(totalPlots / n));
             const start = Math.floor(Math.random() * k);
             for (let i = 0; i < n; i++) {
@@ -109,7 +110,6 @@ function initSamplingSimulator() {
                 selectedPlots.push(population[idx]);
             }
         } else if (method === 'cluster') {
-            // Cluster Sampling (Pick entire row-based clusters)
             const totalClusters = 10;
             const clustersToPick = Math.max(1, Math.round(n / 10));
             const shuffledClusters = [...Array(totalClusters).keys()].sort(() => Math.random() - 0.5);
@@ -120,7 +120,6 @@ function initSamplingSimulator() {
         const selectedIds = selectedPlots.map(p => p.id);
         drawGrid(selectedIds);
 
-        // Calculate and render stats using global BiostatsMath
         const popYields = population.map(p => p.yield);
         const sampleYields = selectedPlots.map(p => p.yield);
 
@@ -133,10 +132,11 @@ function initSamplingSimulator() {
         if (samplingErrorSpan) samplingErrorSpan.textContent = `${window.BiostatsMath.formatNumber(error, 2)} kg`;
     }
 
-    // Initial canvas render
     drawGrid();
 
     if (runBtn) {
         runBtn.addEventListener('click', runSampling);
     }
+
+    window.addEventListener('resize', () => drawGrid());
 }
